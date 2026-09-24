@@ -566,6 +566,21 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
 .cart-head{padding-top:calc(20px + env(safe-area-inset-top,0px))}
 .cart-foot{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
 .mnav-panel{padding-top:calc(18px + env(safe-area-inset-top,0px))}
+/* --- mobile micro-optimizations: trust strip + search bar --- */
+@media (max-width:600px){
+  /* Trust strip — label above, logos in two evenly-spaced rows */
+  .trust-strip .wrap{flex-direction:column;align-items:center;gap:16px;text-align:center}
+  .trust-strip .lab{width:100%}
+  .trust-logos{width:100%;justify-content:center;gap:18px 12px}
+  .tlogo{flex:0 0 calc(33.333% - 8px);justify-content:center}
+  .twm{font-size:12.5px}
+
+  /* Search bar — input on its own full-width row, reset below, no keyboard hint on touch */
+  .search-bar{flex-direction:column;align-items:stretch;gap:10px}
+  .search-in{flex:1 1 auto;width:100%}
+  .search-in kbd{display:none}
+  #clearBtn{align-self:flex-start}
+}
 </style>
 </head>
 <body>
@@ -715,7 +730,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
       <div class="search-bar">
         <label class="search-in">
           <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <input id="q" type="search" placeholder="Try “Modbus I/O”, “DX-5”, “24 VDC drive”…" autocomplete="off" aria-label="Search parts" />
+          <input id="q" type="search" placeholder="Try “1756-L84”, “PROFINET”, “servo”…" autocomplete="off" aria-label="Search parts" />
           <kbd>/</kbd>
         </label>
         <button class="btn btn-ghost btn-sm" id="clearBtn">Reset filters</button>
@@ -1636,4 +1651,5 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
 </script>
 </body>
 </html>
+
 
