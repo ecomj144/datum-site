@@ -190,6 +190,8 @@ nav.main>div{position:relative}
   border-radius:100px;padding:6px 13px 6px 8px;font-size:12.5px;color:var(--ink-2);margin-bottom:26px;box-shadow:var(--shadow-sm)}
 .tagpill b{font-family:var(--f-mono);font-weight:600;background:var(--ok-soft);color:var(--ok);padding:2px 7px;border-radius:100px;font-size:11px}
 h1.hero-h{font-size:clamp(38px,5.4vw,66px);letter-spacing:-.035em;line-height:.98}
+h1.hero-h span{display:block}
+@media (min-width:601px){h1.hero-h span{white-space:nowrap}}
 h1.hero-h .rule{display:block;height:0;overflow:visible}
 .hero-sub{font-size:clamp(16px,1.7vw,18.5px);color:var(--ink-2);line-height:1.55;margin:22px 0 30px;max-width:480px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -272,6 +274,7 @@ section{padding:76px 0}
   display:flex;flex-direction:column;transition:border-color .16s,transform .16s,box-shadow .16s;position:relative;overflow:hidden;min-height:186px}
 .cat:hover{border-color:var(--line-strong);transform:translateY(-3px);box-shadow:var(--shadow)}
 .cat .code{font-family:var(--f-mono);font-size:10.5px;color:var(--steel-2);letter-spacing:.03em}
+.cat.flag .code{visibility:hidden}
 .cat h3{font-family:var(--f-body);font-weight:600;font-size:16px;letter-spacing:-.01em;margin-top:auto}
 .cat p{font-size:12.5px;color:var(--steel);margin-top:5px;line-height:1.4}
 .cat .cta{margin-top:12px;font-size:12.5px;font-weight:600;color:var(--info);display:inline-flex;align-items:center;gap:6px}
@@ -411,6 +414,7 @@ section{padding:76px 0}
 .final{position:relative;background:linear-gradient(155deg,#141a22,#0b0e13);color:#fff;border:1px solid rgba(255,255,255,.06);border-radius:var(--r-xl);overflow:hidden;padding:56px 48px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
 .final::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 130% at 100% 0%,rgba(247,179,36,.16),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:auto,28px 28px,28px 28px}
 .final .fc{position:relative}
+@media (min-width:361px){.final-h span{display:block;white-space:nowrap}}
 .final h2{color:#fff;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.03em}
 .final p{color:#AEB8C3;margin:16px 0 26px;font-size:16px;max-width:440px}
 .final .fcta{display:flex;gap:12px;flex-wrap:wrap}
@@ -777,6 +781,26 @@ html.qd-lock,html.qd-lock body{overflow:hidden}
 @media (min-width:981px){.dp-points{margin-top:42px;gap:34px}}
 @media (max-width:980px){.dp{grid-template-columns:1fr;gap:34px}.dp-copy{padding-top:0}.dp-lead{max-width:none}}
 @media (max-width:600px){.dp-console{padding:18px;border-radius:18px}.dp-form{grid-template-columns:1fr 76px}.dp-seg button{font-size:12.5px;padding:8px 4px}.dp-cta{flex-direction:column}.dp-top{flex-direction:column;align-items:flex-start;gap:4px}.dp-pop button:nth-of-type(n+3){display:none}.dp-prod b{white-space:normal;line-height:1.3}.dp-prod .pn{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+/* ===================== CALL NOW ===================== */
+.call-wrap{position:fixed;inset:0;z-index:116;display:grid;place-items:center;padding:20px;background:rgba(8,10,14,.62);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:opacity .2s,visibility 0s linear .2s}
+.call-wrap.open{opacity:1;visibility:visible;transition:opacity .2s}
+.call{position:relative;width:min(440px,100%);padding:30px 28px 24px;border-radius:20px;color:#E7ECF1;background:radial-gradient(120% 80% at 90% -10%,rgba(242,169,0,.16),transparent 55%),linear-gradient(160deg,#171d26,#0b0e13);border:1px solid #2A333F;box-shadow:0 40px 90px -30px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.06);transform:translateY(10px) scale(.98);transition:transform .22s}
+.call-wrap.open .call{transform:none}
+.call-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:9px;border:0;background:transparent;color:#9AA5B1;display:grid;place-items:center;cursor:pointer}
+.call-x:hover{background:rgba(255,255,255,.07);color:#fff}
+.call-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#9AA5B1}
+.call-live i{width:7px;height:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+.call h3{font-size:24px;letter-spacing:-.02em;line-height:1.15;margin-top:14px;color:#fff;padding-right:24px}
+.call p{font-size:14.5px;color:#AEB8C3;margin-top:8px;line-height:1.55}
+.call-num{display:block;margin:22px 0 18px;font-family:var(--f-mono);font-weight:600;font-size:clamp(28px,7vw,36px);letter-spacing:.01em;color:var(--signal);text-shadow:0 0 24px rgba(242,169,0,.3);text-decoration:none;font-variant-numeric:tabular-nums}
+.call-cta{display:flex;gap:10px}
+.call-cta .btn{flex:1;justify-content:center;gap:8px}
+.call-ghost{background:transparent;color:#fff;border:1px solid #343F4D}
+.call-ghost:hover{border-color:#5A6676;background:rgba(255,255,255,.04)}
+.call .call-fine{font-size:12px;color:#6E7A87;margin-top:14px;text-align:center}
+html.call-lock,html.call-lock body{overflow:hidden}
+@media (max-width:600px){.call-wrap{place-items:end stretch;padding:0}.call{width:100%;border-radius:20px 20px 0 0;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateY(30px)}.call-cta{flex-direction:column}}
+@media (prefers-reduced-motion:reduce){.call-wrap,.call{transition:none}}
 </style>
 </head>
 <body>
@@ -791,7 +815,7 @@ html.qd-lock,html.qd-lock body{overflow:hidden}
     </div>
     <div class="util-right">
       <a href="#resources">Datasheets &amp; CAD</a>
-      <a href="#support">1-800-555-DATUM</a>
+      <a href="tel:+18005550199" data-call data-phone-text>1-800-555-0199</a>
     </div>
   </div>
 </div>
@@ -850,7 +874,7 @@ html.qd-lock,html.qd-lock body{overflow:hidden}
   <div class="wrap">
     <div class="hero-copy">
       <div class="tagpill"><b>IN STOCK</b> 14,000+ automation SKUs ship same day</div>
-      <h1 class="hero-h">Control hardware that ships as fast as you build.</h1>
+      <h1 class="hero-h"><span>Data center parts.</span> <span>Ready to ship.</span></h1>
       <p class="hero-sub">PLCs, distributed field I/O, HMIs, drives and sensors — engineered to spec, priced in the open, and backed by engineers who answer the phone. From one terminal block to a full control panel.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#catalog">
@@ -1102,10 +1126,10 @@ html.qd-lock,html.qd-lock body{overflow:hidden}
     <div class="final">
       <div class="fc">
         <span class="eyebrow" style="color:#9AA6B2">TALK TO AN ENGINEER</span>
-        <h2 style="margin-top:14px">Stuck on a spec? We'll pick up.</h2>
+        <h2 style="margin-top:14px" class="final-h"><span>Stuck on a spec? We'll</span> <span>pick up the phone.</span></h2>
         <p>Free application support from control engineers — no ticket queue, no upsell. Call, chat or email and get a real answer, usually in under a minute.</p>
         <div class="fcta">
-          <a class="btn btn-signal" href="#catalog">Start an order</a>
+          <a class="btn btn-signal" href="tel:+18005550199" data-call>Start an order</a>
           <a class="btn btn-outline" href="#chat" data-chat="" style="border-color:rgba(255,255,255,.25);color:#fff">Chat with support</a>
         </div>
       </div>
@@ -1252,6 +1276,19 @@ html.qd-lock,html.qd-lock body{overflow:hidden}
       <button type="button" data-qd="I need CAD files.">CAD files</button>
     </div>
     <div class="qd-row"><textarea id="qdIn" rows="1" placeholder="Part numbers, quantities or a question…" aria-label="Message"></textarea><button class="qd-send" id="qdSend" type="button" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+  </div>
+</div>
+
+<!-- ============= CALL NOW ============= -->
+<div class="call-wrap" id="callWrap" aria-hidden="true">
+  <div class="call" role="dialog" aria-modal="true" aria-labelledby="callTitle">
+    <button class="call-x" id="callX" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <span class="call-live"><i></i>Reps online now · avg pickup 42 sec</span>
+    <h3 id="callTitle">Talk to a rep. Get a quote or place your order.</h3>
+    <p>Our sales engineers price parts, confirm stock and take your order right on the call. No forms, no ticket queue.</p>
+    <a class="call-num" id="callNum" href="tel:+18005550199">1-800-555-0199</a>
+    <div class="call-cta"><a class="btn btn-signal" id="callNow" href="tel:+18005550199"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call now</a><button class="btn call-ghost" id="callCopy" type="button">Copy number</button></div>
+    <p class="call-fine">Order by 6:00 PM ET to ship today.</p>
   </div>
 </div>
 
@@ -2237,6 +2274,34 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
     renderCart(); if(typeof bumpBadge==='function') bumpBadge(); toast(`Added ${qty} × ${p.part}`); if(typeof openCart==='function') openCart();
   });
   tick(); calc(); setInterval(tick,1000);
+})();
+
+/* hero headline: keep each line inside its column on any screen/font */
+(function(){
+  const h=document.querySelector('h1.hero-h'); if(!h) return;
+  function fit(){ h.style.fontSize=''; if(innerWidth<601) return;
+    const col=h.parentElement.clientWidth, w=Math.max(...[...h.children].map(s=>s.scrollWidth));
+    if(w>col){ const cur=parseFloat(getComputedStyle(h).fontSize); h.style.fontSize=Math.floor(cur*col/w*0.98)+'px'; } }
+  fit(); addEventListener('resize',fit); document.fonts&&document.fonts.ready.then(fit);
+})();
+
+/* ===================== CALL NOW ===================== */
+(function(){
+  // Business line: change these two values to your real number.
+  const PHONE={display:'1-800-555-0199', tel:'+18005550199'};
+  const w=document.getElementById('callWrap'); if(!w) return;
+  const num=document.getElementById('callNum'), now=document.getElementById('callNow'), copy=document.getElementById('callCopy');
+  num.textContent=PHONE.display; num.href=now.href='tel:'+PHONE.tel;
+  document.querySelectorAll('[data-call]').forEach(a=>a.href='tel:'+PHONE.tel);
+  document.querySelectorAll('[data-phone-text]').forEach(a=>a.textContent=PHONE.display);
+  const open=()=>{ w.classList.add('open'); w.setAttribute('aria-hidden','false'); document.documentElement.classList.add('call-lock'); setTimeout(()=>now.focus(),60); };
+  const close=()=>{ w.classList.remove('open'); w.setAttribute('aria-hidden','true'); document.documentElement.classList.remove('call-lock'); };
+  document.addEventListener('click',e=>{ const t=e.target.closest('[data-call]'); if(!t) return; e.preventDefault(); e.stopPropagation(); open(); },true);
+  w.addEventListener('click',e=>{ if(e.target===w) close(); });
+  document.getElementById('callX').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&w.classList.contains('open')){ close(); e.stopPropagation(); } },true);
+  copy.addEventListener('click',()=>{ const done=()=>{ copy.textContent='Copied'; setTimeout(()=>copy.textContent='Copy number',1600); };
+    if(navigator.clipboard) navigator.clipboard.writeText(PHONE.display).then(done).catch(done); else done(); });
 })();
 </script>
 </body>
