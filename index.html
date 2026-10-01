@@ -510,10 +510,10 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
 .reveal{opacity:0;transform:translateY(14px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero-art .cap .led{animation:none}.panel-scan{animation:none}.hero-render{transition:none}.float-spec{animation:none}}
-.brand{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--steel);margin-right:7px;white-space:nowrap}
-.brand::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--bc,#8a94a0);flex:none}
-.brand.ab{--bc:#E42320}
-.brand.sie{--bc:#009999}
+.mfr-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--steel);margin-right:7px;white-space:nowrap}
+.mfr-badge::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--bc,#8a94a0);flex:none}
+.mfr-badge.ab{--bc:#E42320}
+.mfr-badge.sie{--bc:#009999}
 /* ===================== MOBILE OPTIMIZATION PASS ===================== */
 @media (max-width:600px){
   /* Header — declutter the right cluster so nothing crowds/overflows */
@@ -581,6 +581,132 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
   #clearBtn{align-self:flex-start}
 }
 .pcard .render img.pcard-render.is-photo{height:112px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.14))}
+/* ===================== LANDING PAGES ===================== */
+.pg{position:fixed;inset:0;z-index:105;background:var(--bg,var(--surface-2));overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transition:opacity .2s,visibility 0s linear .2s}
+.pg.open{opacity:1;visibility:visible;transition:opacity .2s}
+html.pg-lock,html.pg-lock body{overflow:hidden}
+.pg-bar{position:sticky;top:0;z-index:2;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.pg-bar-in{display:flex;align-items:center;gap:14px;height:62px}
+.pg-back{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:14px;color:var(--ink);background:none;border:0;cursor:pointer;padding:10px 10px 10px 0;flex:none}
+.pg-back svg{width:16px;height:16px}
+.pg-crumb{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--steel);text-transform:uppercase;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg-hero{padding:56px 0 32px;border-bottom:1px solid var(--line);background:var(--surface)}
+.pg-hero h1{font-size:clamp(32px,4.6vw,52px);letter-spacing:-.035em;line-height:1.03;margin-top:14px;max-width:840px}
+.pg-hero .lead{font-size:17px;color:var(--ink-2);max-width:660px;margin-top:16px;line-height:1.55}
+.pg-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.pg-content{padding-top:40px;padding-bottom:80px;display:flex;flex-direction:column;gap:40px}
+.pg-h2{font-size:22px;letter-spacing:-.02em;margin-bottom:14px}
+.pg-h3{font-size:18px;letter-spacing:-.01em;margin-bottom:4px}
+.pg-note{font-size:13px;color:var(--steel);line-height:1.5}
+.pg-link{color:var(--info);font-weight:600;cursor:pointer;background:none;border:0;font:inherit;font-weight:600;padding:0}
+.pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pg-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;gap:8px}
+.pg-card h3{font-family:var(--f-body);font-weight:600;font-size:16.5px}
+.pg-card p{font-size:14px;color:var(--ink-2);line-height:1.55}
+.pg-card .meta{font-family:var(--f-mono);font-size:10.5px;color:var(--steel);letter-spacing:.05em;text-transform:uppercase}
+.pg-card .btn{align-self:flex-start;margin-top:auto}
+.pg-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.pg-stats div{padding:22px;border-right:1px solid var(--line)}
+.pg-stats div:last-child{border-right:0}
+.pg-stats b{display:block;font-family:var(--f-display);font-size:30px;font-weight:800;letter-spacing:-.03em}
+.pg-stats span{font-size:13px;color:var(--steel)}
+.pg-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.pg-table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.pg-table th{text-align:left;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--steel);padding:12px 16px;background:var(--surface-2)}
+.pg-table td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:middle}
+.pg-table tr:first-child td{border-top:0}
+.pg-table thead+tbody tr:first-child td{border-top:1px solid var(--line)}
+.pg-table .mono{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap}
+.pg-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;list-style:none;counter-reset:s}
+.pg-steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;counter-increment:s}
+.pg-steps li::before{content:"0" counter(s);display:block;font-family:var(--f-mono);font-size:12px;font-weight:600;color:#A87400;margin-bottom:10px}
+.pg-steps b{display:block;font-size:15px;margin-bottom:4px}
+.pg-steps span{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.pg-acc details{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);padding:0 18px;margin-bottom:10px}
+.pg-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center;padding:17px 0;font-weight:600;font-size:15px}
+.pg-acc summary::-webkit-details-marker{display:none}
+.pg-acc summary::after{content:"+";font-family:var(--f-mono);font-size:18px;color:var(--steel);transition:transform .2s;flex:none}
+.pg-acc details[open] summary::after{transform:rotate(45deg)}
+.pg-acc details p{padding:0 0 17px;color:var(--ink-2);font-size:14.5px;line-height:1.6}
+.pg-acc .tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.05em;color:var(--info);background:var(--info-soft);padding:2px 7px;border-radius:100px;margin-right:10px;flex:none}
+.pg-acc summary span.t{flex:1}
+.pg-search{width:100%;max-width:520px;padding:13px 16px;font:inherit;font-size:16px;border:1.5px solid var(--line-2);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);margin-bottom:16px}
+.pg-search:focus{outline:0;border-color:var(--info);box-shadow:0 0 0 3px var(--info-soft)}
+.tool{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;align-items:start}
+.tool-in,.tool-out{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
+.tool-row{display:grid;grid-template-columns:1fr 64px 92px 32px;gap:8px;margin-bottom:8px;align-items:center}
+.tool label{font-family:var(--f-mono);font-size:10.5px;color:var(--steel);letter-spacing:.05em;text-transform:uppercase;display:block;margin-bottom:6px}
+.tool input,.tool select{font:inherit;font-size:15px;padding:10px 12px;border:1.5px solid var(--line-2);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);min-width:0;width:100%}
+.tool input:focus,.tool select:focus{outline:0;border-color:var(--info)}
+.tool-x{width:32px;height:40px;border:0;background:none;color:var(--steel);cursor:pointer;font-size:20px;line-height:1}
+.tool-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.tool-big{font-family:var(--f-display);font-weight:800;font-size:40px;letter-spacing:-.03em;line-height:1;margin:6px 0 4px}
+.tool-rec{margin-top:14px;padding:14px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--line);font-size:14px;line-height:1.5}
+.tool-out .btn{margin-top:14px}
+.ds{display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:start}
+.ds-img{background:radial-gradient(circle at 50% 40%,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;display:grid;place-items:center;aspect-ratio:1}
+.ds-img img{max-width:100%;max-height:250px;object-fit:contain;filter:drop-shadow(0 14px 22px rgba(0,0,0,.25))}
+.ds-h{font-size:clamp(26px,3.2vw,36px);letter-spacing:-.03em;margin-top:10px}
+.ds-pn{font-family:var(--f-mono);font-size:13px;color:var(--steel);margin-top:6px}
+.ds-buy{display:flex;align-items:center;gap:12px;margin:16px 0}
+.ds-price{font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:-.02em}
+.ds-desc{font-size:15px;color:var(--ink-2);line-height:1.6;margin-bottom:18px}
+.ds-k{font-family:var(--f-mono);font-size:11.5px;color:var(--steel);text-transform:uppercase;letter-spacing:.04em;width:38%}
+.pill-s{font-family:var(--f-mono);font-size:10.5px;padding:3px 8px;border-radius:100px;white-space:nowrap}
+.pill-s.in{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.pill-s.low{color:#A87400;background:var(--signal-soft)}
+.pill-s.src{color:var(--info);background:var(--info-soft)}
+@media (max-width:900px){.pg-grid,.pg-steps{grid-template-columns:repeat(2,1fr)}.tool,.ds{grid-template-columns:1fr}.pg-stats{grid-template-columns:repeat(2,1fr)}.pg-stats div:nth-child(2){border-right:0}.pg-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.ds-img{max-width:420px}}
+@media (max-width:600px){.pg-grid,.pg-steps{grid-template-columns:1fr}.pg-hero{padding:34px 0 24px}.pg-content{padding-top:26px;padding-bottom:60px;gap:32px}.tool-row{grid-template-columns:1fr 52px 74px 28px}.pg-bar .btn{display:none}.pg-stats b{font-size:24px}.ds-img{aspect-ratio:auto;max-height:280px}}
+@media print{body>*:not(#pg){display:none!important}#pg{position:static!important;opacity:1!important;visibility:visible!important;overflow:visible!important;background:#fff}.pg-bar,.pg-noprint{display:none!important}}
+
+/* ===================== QUOTE DESK CHAT ===================== */
+.qd{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:115;width:min(380px,calc(100vw - 32px));height:min(580px,calc(100vh - 100px));display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line-2);border-radius:18px;box-shadow:0 30px 70px -20px rgba(12,15,22,.55);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(14px) scale(.98);transform-origin:bottom right;transition:opacity .2s,transform .22s,visibility 0s linear .22s}
+.qd.open{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .22s}
+.qd-head{display:flex;align-items:center;gap:12px;padding:13px 14px 13px 16px;background:#0C0F16;color:#fff}
+.qd-av{position:relative;width:36px;height:36px;border-radius:10px;background:#1B222C;display:grid;place-items:center;flex:none;font-family:var(--f-display);font-weight:800;color:var(--signal)}
+.qd-head b{display:block;font-size:14.5px}
+.qd-head small{display:flex;align-items:center;gap:6px;font-size:11.5px;color:#9AA5B1}
+.qd-head small i{width:7px;height:7px;border-radius:50%;background:#22C55E}
+.qd-x{margin-left:auto;width:36px;height:36px;border-radius:8px;display:grid;place-items:center;color:#C6CDD6;background:transparent;border:0;cursor:pointer}
+.qd-x:hover{background:rgba(255,255,255,.08)}
+.qd-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--surface-2);overscroll-behavior:contain}
+.qm{max-width:88%;padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.qm.bot{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:4px;color:var(--ink)}
+.qm.me{align-self:flex-end;background:var(--signal);color:#0C0F16;border-bottom-right-radius:4px;white-space:pre-wrap}
+.qm.wide{max-width:100%;align-self:stretch}
+.qm a,.qm .lnk{color:var(--info);font-weight:600;cursor:pointer;background:none;border:0;font:inherit;font-weight:600;padding:0}
+.qm code{font-family:var(--f-mono);font-size:12.5px;display:block;margin-top:6px;padding:8px 10px;background:var(--surface-2);border-radius:8px}
+.qm.typing{display:flex;gap:4px;padding:13px 14px}
+.qm.typing i{width:6px;height:6px;border-radius:50%;background:var(--steel);animation:qblink 1.2s infinite}
+.qm.typing i:nth-child(2){animation-delay:.2s}.qm.typing i:nth-child(3){animation-delay:.4s}
+@keyframes qblink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.qq-h{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:var(--steel);margin-top:8px}
+.qq table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 4px}
+.qq td{padding:7px 0;border-top:1px solid var(--line);vertical-align:top}
+.qq .pn{font-family:var(--f-mono);font-size:11.5px;display:block}
+.qq .nm{color:var(--steel);font-size:11.5px}
+.qq .r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:8px}
+.qq-t{display:flex;justify-content:space-between;align-items:baseline;border-top:1.5px solid var(--ink);padding-top:8px}
+.qq-t span{font-size:12px;color:var(--steel)}
+.qq-t b{font-family:var(--f-display);font-size:20px;font-variant-numeric:tabular-nums}
+.qq-n{font-size:12px;color:var(--steel);margin-top:6px}
+.qa{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.qd-email{display:flex;gap:6px;margin-top:8px}
+.qd-email input{flex:1;min-width:0;font:inherit;font-size:16px;padding:8px 10px;border:1.5px solid var(--line-2);border-radius:9px;background:var(--surface-2);color:var(--ink)}
+.qd-email input:focus{outline:0;border-color:var(--info)}
+.qd-foot{padding:10px 12px;background:var(--surface);border-top:1px solid var(--line)}
+.qd-chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:9px}
+.qd-chips::-webkit-scrollbar{display:none}
+.qd-chips button{flex:none;white-space:nowrap;font:inherit;font-size:12.5px;padding:7px 11px;border-radius:100px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.qd-chips button:hover{border-color:var(--ink);color:var(--ink)}
+.qd-row{display:flex;gap:8px;align-items:flex-end}
+.qd-row textarea{flex:1;resize:none;max-height:120px;min-height:44px;padding:11px 13px;border:1.5px solid var(--line-2);border-radius:12px;background:var(--surface);color:var(--ink);font:inherit;font-size:16px;line-height:1.35}
+.qd-row textarea:focus{outline:0;border-color:var(--info);box-shadow:0 0 0 3px var(--info-soft)}
+.qd-send{width:44px;height:44px;flex:none;border-radius:12px;border:0;background:var(--signal);color:#0C0F16;display:grid;place-items:center;cursor:pointer}
+@media (max-width:600px){.qd{right:0;bottom:0;width:100vw;height:100vh;height:100dvh;border-radius:0;border:0}.qd-head{padding-top:calc(13px + env(safe-area-inset-top,0px))}.qd-foot{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}}
+html.qd-lock,html.qd-lock body{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.qm.typing i{animation:none}.qd,.pg{transition:none}}
 </style>
 </head>
 <body>
@@ -836,14 +962,14 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 12l9 4.5L21 12M3 16.5 12 21l9-4.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
         <h3>CAD &amp; panel models</h3>
         <p>STEP, DXF and EPLAN macros for every enclosure component. Build the panel before the parts land.</p>
-        <a class="link" href="#">Open CAD library
+        <a class="link" href="#/cad" data-route="cad">Open CAD library
           <svg viewBox="0 0 24 24" fill="none" width="14"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <div class="res">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 21h8M12 18v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 9h4M7 13h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3>Config &amp; sizing tools</h3>
         <p>Size a power supply, pick a drive, or generate a tag list — browser tools that export straight to your project.</p>
-        <a class="link" href="#">Launch tools
+        <a class="link" href="#/tools" data-route="tools">Launch tools
           <svg viewBox="0 0 24 24" fill="none" width="14"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
@@ -874,7 +1000,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
         <p>Free application support from control engineers — no ticket queue, no upsell. Call, chat or email and get a real answer, usually in under a minute.</p>
         <div class="fcta">
           <a class="btn btn-signal" href="#catalog">Start an order</a>
-          <a class="btn btn-outline" href="#" style="border-color:rgba(255,255,255,.25);color:#fff">Chat with support</a>
+          <a class="btn btn-outline" href="#chat" data-chat="" style="border-color:rgba(255,255,255,.25);color:#fff">Chat with support</a>
         </div>
       </div>
       <div class="final-card">
@@ -907,12 +1033,12 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
       </div>
       <div class="fcol">
         <h5>PRODUCTS</h5>
-        <a href="#products">PLCs &amp; controllers</a>
-        <a href="#products">Field I/O</a>
-        <a href="#products">HMIs &amp; panels</a>
-        <a href="#products">Drives &amp; motion</a>
-        <a href="#products">Sensors</a>
-        <a href="#products">Power &amp; protection</a>
+        <a href="#products" data-fcat="plc">PLCs &amp; controllers</a>
+        <a href="#products" data-fcat="io">Field I/O</a>
+        <a href="#products" data-fcat="hmi">HMIs &amp; panels</a>
+        <a href="#products" data-fcat="drive">Drives &amp; motion</a>
+        <a href="#products" data-fcat="sensor">Sensors</a>
+        <a href="#products" data-fcat="power">Power &amp; protection</a>
       </div>
       <div class="fcol">
         <h5>SOLUTIONS</h5>
@@ -924,19 +1050,19 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
       </div>
       <div class="fcol">
         <h5>RESOURCES</h5>
-        <a href="#resources">Datasheets</a>
-        <a href="#resources">CAD library</a>
-        <a href="#resources">Config tools</a>
-        <a href="#resources">Application notes</a>
-        <a href="#resources">Knowledge base</a>
+        <a href="#/datasheets" data-route="datasheets">Datasheets</a>
+        <a href="#/cad" data-route="cad">CAD library</a>
+        <a href="#/tools" data-route="tools">Config tools</a>
+        <a href="#/app-notes" data-route="app-notes">Application notes</a>
+        <a href="#/knowledge-base" data-route="knowledge-base">Knowledge base</a>
       </div>
       <div class="fcol">
         <h5>COMPANY</h5>
-        <a href="#">About DATUM</a>
+        <a href="#/about" data-route="about">About DATUM</a>
         <a href="#support">Support</a>
-        <a href="#">Shipping &amp; returns</a>
-        <a href="#">Warranty</a>
-        <a href="#">Careers</a>
+        <a href="#/shipping" data-route="shipping">Shipping &amp; returns</a>
+        <a href="#/warranty" data-route="warranty">Warranty</a>
+        <a href="#/careers" data-route="careers">Careers</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -991,6 +1117,35 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
     <a href="#support">Support</a>
     <a href="#why">Why DATUM</a>
     <a class="btn btn-primary btn-block" href="#catalog" style="margin-top:18px">Shop products</a>
+  </div>
+</div>
+
+<!-- ============= LANDING PAGES ============= -->
+<div class="pg" id="pg" aria-hidden="true">
+  <div class="pg-bar"><div class="wrap pg-bar-in">
+    <button class="pg-back" id="pgBack" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>Back to store</button>
+    <span class="pg-crumb" id="pgCrumb"></span>
+    <button class="btn btn-signal btn-sm" type="button" data-chat="">Chat with support</button>
+  </div></div>
+  <div id="pgBody"></div>
+</div>
+
+<!-- ============= QUOTE DESK CHAT ============= -->
+<div class="qd" id="qd" role="dialog" aria-label="Chat with support" aria-hidden="true">
+  <div class="qd-head">
+    <div class="qd-av">D</div>
+    <div><b>DATUM Quote Desk</b><small><i></i>Engineers online · instant pricing</small></div>
+    <button class="qd-x" id="qdX" type="button" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="qd-body" id="qdBody" aria-live="polite"></div>
+  <div class="qd-foot">
+    <div class="qd-chips">
+      <button type="button" data-qd="bom">Paste a parts list</button>
+      <button type="button" data-qd="What are your lead times on non-stock parts?">Lead times</button>
+      <button type="button" data-qd="I need to return a part.">Returns</button>
+      <button type="button" data-qd="I need CAD files.">CAD files</button>
+    </div>
+    <div class="qd-row"><textarea id="qdIn" rows="1" placeholder="Part numbers, quantities or a question…" aria-label="Message"></textarea><button class="qd-send" id="qdSend" type="button" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
   </div>
 </div>
 
@@ -1352,7 +1507,7 @@ function card(p, featured){
     </div>
     <div class="render">${(p.img||IMG[p.cat])?`<img class="pcard-render${p.img?' is-photo':''}" src="${p.img||IMG[p.cat]}" alt="${p.name}" loading="lazy" decoding="async">`:SVG[catSvg(p.cat)]()}</div>
     <h3>${p.name}</h3>
-    <div class="part"><span class="brand ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
+    <div class="part"><span class="mfr-badge ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
     <div class="spec-mini">${specs}</div>
     <div class="buy">
       <div class="price">$${p.price}<span class="ea">/ea</span>${p.was?`<s>$${p.was}</s>`:''}</div>
@@ -1499,7 +1654,7 @@ function renderCart(){
     el.innerHTML=`
       <div class="r">${SVG[catSvg(p.cat)]()}</div>
       <div class="info">
-        <h4>${p.name}</h4><div class="part"><span class="brand ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
+        <h4>${p.name}</h4><div class="part"><span class="mfr-badge ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
         <div class="btm">
           <div class="qty">
             <button data-act="dec" data-id="${p.id}" aria-label="Decrease">−</button>
@@ -1549,7 +1704,7 @@ function openModal(id){
     <div class="modal-body">
       ${stockBadge(p.stock)}
       <h2>${p.name}</h2>
-      <div class="part"><span class="brand ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
+      <div class="part"><span class="mfr-badge ${p.mfr==='Siemens'?'sie':'ab'}">${p.mfr}</span>${p.part}</div>
       <p class="desc">${p.desc}</p>
       ${nets?`<div class="spec-mini">${nets}${p.volt!=='—'?`<span>${p.volt}</span>`:''}</div>`:''}
       <div class="spec-table">${rows}</div>
@@ -1650,6 +1805,282 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
     },{rootMargin:'-45% 0px -50% 0px',threshold:0});
     map.forEach((a,s)=>nio.observe(s));
   }
+})();
+
+/* ===================== LANDING PAGES + QUOTE DESK ===================== */
+(function(){
+  const $=s=>document.querySelector(s);
+  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const usd=n=>'$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const norm=s=>String(s||'').toUpperCase().replace(/\s+/g,'');
+  const base=s=>norm(s).replace(/\/[A-Z0-9]{1,2}$/,'');
+  const findPart=t=>{const n=norm(t);return P.find(p=>norm(p.part)===n)||P.find(p=>base(p.part)===base(n))||null;};
+  const stockPill=p=>`<span class="pill-s ${p.stock==='in'?'in':'low'}">${p.stock==='in'?'In stock':'Low stock'}</span>`;
+  const enc=s=>encodeURIComponent(s);
+
+  /* ---------- builders ---------- */
+  const bChat=(t,m)=>`<button class="btn btn-signal" type="button" data-chat="${esc(m||'')}">${t}</button>`;
+  const bGoto=(t,h)=>`<button class="btn btn-ghost" type="button" data-goto="${h}">${t}</button>`;
+  const bRoute=(t,r)=>`<button class="btn btn-ghost" type="button" data-route="${r}">${t}</button>`;
+  const hero=o=>`<header class="pg-hero"><div class="wrap"><span class="eyebrow">${o.eyebrow}</span><h1>${o.title}</h1><p class="lead">${o.lead}</p>${o.cta?`<div class="pg-cta">${o.cta.join('')}</div>`:''}</div></header>`;
+  const page=(o)=>hero(o)+`<div class="wrap pg-content">${o.body}</div>`;
+  const sec=(h,inner,sub)=>`<section><h2 class="pg-h2">${h}</h2>${sub?`<p class="pg-note" style="margin:-6px 0 14px">${sub}</p>`:''}${inner}</section>`;
+  const grid=a=>`<div class="pg-grid">${a.map(([h,p,m,x])=>`<div class="pg-card">${m?`<span class="meta">${m}</span>`:''}<h3>${h}</h3><p>${p}</p>${x||''}</div>`).join('')}</div>`;
+  const stats=a=>`<div class="pg-stats">${a.map(([b,s])=>`<div><b>${b}</b><span>${s}</span></div>`).join('')}</div>`;
+  const steps=a=>`<ol class="pg-steps">${a.map(([b,s])=>`<li><b>${b}</b><span>${s}</span></li>`).join('')}</ol>`;
+  const acc=(a,id)=>`<div class="pg-acc"${id?` id="${id}"`:''}>${a.map(([q,ans,tag])=>`<details><summary>${tag?`<span class="tag">${tag}</span>`:''}<span class="t">${q}</span></summary><p>${ans}</p></details>`).join('')}</div>`;
+  const table=(head,rows,id)=>`<div class="pg-table-wrap"><table class="pg-table"${id?` id="${id}"`:''}><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
+
+  /* ---------- tools data ---------- */
+  const FLA={'460':{0.5:1.1,0.75:1.6,1:2.1,1.5:3.0,2:3.4,3:4.8,5:7.6,7.5:11,10:14,15:21,20:27,25:34,30:40,40:52,50:65},
+             '230':{0.5:2.2,0.75:3.2,1:4.2,1.5:6.0,2:6.8,3:9.6,5:15.2,7.5:22,10:28,15:42,20:54,25:68,30:80}};
+  const PSU_DEF=[['PLC CPU & I/O backplane',1,800],['HMI panel',1,1000],['Sensors (PNP)',12,30],['Relay coils',8,40],['Managed network switch',1,400]];
+  const psuRow=(n,q,m)=>`<div class="tool-row"><input value="${esc(n)}" aria-label="Load"><input type="number" min="0" value="${q}" aria-label="Quantity" data-psu><input type="number" min="0" value="${m}" aria-label="mA each" data-psu><button class="tool-x" type="button" data-tool="psu-del" aria-label="Remove">×</button></div>`;
+
+  /* ---------- routes ---------- */
+  const ROUTES={
+    about:()=>({crumb:'Company / About DATUM',html:page({eyebrow:'ABOUT DATUM',title:'Control hardware, sold by people who wire it.',
+      lead:'DATUM is an independent supplier of Allen-Bradley and Siemens automation parts. We stock the controllers, I/O, HMIs and drives that keep plants and data centers running, price them in the open, and staff our support line with control engineers.',
+      cta:[bChat('Talk to an engineer'),bGoto('Browse the catalog','#catalog')],
+      body:stats([['14,000+','SKUs in stock'],['Same day','Ships before 6 PM ET'],['1 year','Warranty on every part'],['42 sec','Average phone pickup']])+
+        sec('What we stand for',grid([
+          ['Priced in the open','Every part shows its price and stock position. No login wall and no "call for quote" on stocked items.'],
+          ['Engineers on the phone','The person who answers can read a wiring diagram, not just an order screen. Application help is always free.'],
+          ['Honest sourcing','We are an independent supplier, not an authorized Rockwell Automation or Siemens distributor. Every part is labeled by condition and backed by our own warranty.']]))+
+        sec('Who we serve',grid([
+          ['Data centers','Cooling plant, power monitoring and generator controls, staged to your build schedule.','CRITICAL FACILITIES'],
+          ['OEM machine builders','Repeatable bills of material with stable pricing across production runs.','MACHINE BUILDERS'],
+          ['Plant maintenance','Fast replacements for legacy and current parts when a line is down.','MRO']]))})}),
+
+    shipping:()=>({crumb:'Company / Shipping & returns',html:page({eyebrow:'SHIPPING & RETURNS',title:'Ships today. Easy to send back.',
+      lead:'In-stock parts ordered before 6:00 PM ET leave the same business day. Unused parts can be returned within 30 days.',
+      cta:[bChat('Start a return','I need to start a return. Order number: '),bChat('Track an order','I want to check the status of my order. Order number: ')],
+      body:sec('Shipping options',table(['Method','Delivery','Cost'],[
+          '<tr><td><b>2-day</b></td><td>2 business days</td><td>Free on stocked parts</td></tr>',
+          '<tr><td><b>Next-day air</b></td><td>Next business day</td><td>Calculated at checkout</td></tr>',
+          '<tr><td><b>Next flight out</b></td><td>Same day, counter-to-counter</td><td>Quoted by an engineer</td></tr>',
+          '<tr><td><b>Freight / LTL</b></td><td>Palletized and panel orders</td><td>Quoted per shipment</td></tr>']),'Order cutoff for same-day shipping is 6:00 PM ET, Monday through Friday.')+
+        sec('How returns work',steps([['Request an RMA','Send your order number and part through chat or phone.'],['Get a prepaid label','We email a return label and RMA number within one business day.'],['Ship it back','Unused, in original packaging, within 30 days of delivery.'],['Get refunded','Refunds post within 5 business days of receipt.']]))+
+        sec('Return policy details',acc([
+          ['Is there a restocking fee?','No fee on unopened parts. Opened but unused parts carry a 15% restocking fee.'],
+          ['What can\'t be returned?','Parts that have been installed or wired, special-order items, and anything with damage not caused in shipping.'],
+          ['What if a part arrives damaged?','Tell us within 5 days of delivery and we ship a replacement immediately, before the damaged unit comes back.']]))})}),
+
+    warranty:()=>({crumb:'Company / Warranty',html:page({eyebrow:'WARRANTY',title:'One year on every part we sell.',
+      lead:'New and surplus alike, every DATUM part is covered against defects for one year from delivery. If it fails, we replace it.',
+      cta:[bChat('File a warranty claim','I need to file a warranty claim. Order number: '),bRoute('Return policy','shipping')],
+      body:sec('Coverage',grid([
+          ['Covered','Defects in materials and workmanship, failure to power up, and failures under normal operation within rated specifications.','INCLUDED'],
+          ['Not covered','Damage from miswiring, overvoltage, environmental conditions outside the datasheet, or physical abuse.','EXCLUDED'],
+          ['How it compares','Because DATUM is an independent supplier, manufacturer warranty terms may not transfer. Our own warranty replaces them.','NOTE']]))+
+        sec('Filing a claim',steps([['Contact us','Send your order number, part number and the failure symptoms.'],['Quick review','An engineer confirms the issue, often in a single call.'],['Advance replacement','For line-down situations we ship before the failed unit returns.'],['Return the unit','Use the prepaid label within 30 days.']]))})}),
+
+    careers:()=>({crumb:'Company / Careers',html:page({eyebrow:'CAREERS',title:'Build the parts desk engineers trust.',
+      lead:'We are a small team of control engineers, salespeople and warehouse pros. If you like solving real problems for people who keep things running, talk to us.',
+      body:sec('Open roles',grid([
+          ['Applications Engineer, Controls','Answer technical calls, size systems and build quotes for Allen-Bradley and Siemens projects.','FULL-TIME · REMOTE (US)',bChat('Apply','I would like to apply for the Applications Engineer, Controls role.')],
+          ['Inside Sales Representative','Own customer accounts from first quote to repeat order, with engineering backup on every call.','FULL-TIME · HYBRID',bChat('Apply','I would like to apply for the Inside Sales Representative role.')],
+          ['Warehouse & Fulfillment Lead','Run same-day shipping, kitting and staged project deliveries.','FULL-TIME · ON-SITE',bChat('Apply','I would like to apply for the Warehouse & Fulfillment Lead role.')]]))+
+        sec('Benefits',grid([['Health, dental, vision','Full coverage for you, generous coverage for family.'],['401(k) with match','Matched contributions from your first day.'],['Training budget','Certifications, courses and conferences, paid.']]))})}),
+
+    datasheets:()=>({crumb:'Resources / Datasheets',html:page({eyebrow:'DATASHEETS',title:'Spec sheets for every part.',
+      lead:'Search by part number or product name. Every sheet is printable and can be saved as a PDF.',
+      body:`<section><input class="pg-search" id="dsQ" type="search" placeholder="Search part number or name…" aria-label="Search datasheets">`+
+        table(['Part number','Product','Brand',''],P.map(p=>`<tr data-s="${esc((p.part+' '+p.name+' '+p.mfr).toLowerCase())}"><td class="mono">${esc(p.part)}</td><td>${esc(p.name)}</td><td>${esc(p.mfr)}</td><td style="text-align:right"><button class="pg-link" type="button" data-route="datasheet/${enc(p.part)}">Spec sheet →</button></td></tr>`),'dsT')+`</section>`})}),
+
+    datasheet:(pn)=>{
+      const p=P.find(x=>x.part===pn); if(!p) return ROUTES.datasheets();
+      const img=p.img||IMG[p.cat];
+      const rows=Object.entries(p.specs||{}); rows.push(['Network',(p.net&&p.net.length)?p.net.join(', '):'None']); rows.push(['Supply',p.volt||'—']);
+      return {crumb:'Datasheets / '+p.part,html:`<div class="wrap pg-content"><button class="pg-link pg-noprint" type="button" data-route="datasheets" style="align-self:flex-start">← All datasheets</button>
+        <div class="ds"><div class="ds-img">${img?`<img src="${img}" alt="${esc(p.name)}">`:''}</div><div>
+        <span class="mfr-badge ${p.mfr==='Siemens'?'sie':'ab'}">${esc(p.mfr)}</span>
+        <h1 class="ds-h">${esc(p.name)}</h1><div class="ds-pn">${esc(p.part)} · ${esc(CAT_LABEL[p.cat]||'')}</div>
+        <div class="ds-buy"><span class="ds-price">${usd(p.price)}</span>${stockPill(p)}</div>
+        <p class="ds-desc">${esc(p.desc||'')}</p>
+        <div class="pg-table-wrap"><table class="pg-table"><tbody>${rows.map(([k,v])=>`<tr><td class="ds-k">${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</tbody></table></div>
+        <div class="pg-cta pg-noprint"><button class="btn btn-primary" type="button" data-print>Print / save as PDF</button><button class="btn btn-ghost" type="button" data-add="${p.id}">Add to order</button><button class="btn btn-ghost" type="button" data-chat="Please send STEP CAD files for ${esc(p.part)}.">Request CAD files</button></div>
+        <p class="pg-note" style="margin-top:14px">Generated from DATUM catalog data. Confirm against the manufacturer's current publication before final design.</p></div></div></div>`};
+    },
+
+    cad:()=>({crumb:'Resources / CAD library',html:page({eyebrow:'CAD LIBRARY',title:'Drop parts straight into your panel layout.',
+      lead:'STEP models, 2D DXF drawings and EPLAN macros for catalog parts. Request any file and it arrives by email, usually within one business hour.',
+      cta:[bChat('Request CAD files','I need CAD files for these parts: ')],
+      body:sec('Formats',grid([['STEP AP214','3D models for SolidWorks, Inventor and panel layout tools.','3D'],['DXF','Front, side and top 2D outlines with mounting dimensions.','2D'],['EPLAN macros','Schematic and 3D macros for EPLAN Electric P8 and Pro Panel.','ECAD']]))+
+        sec('Available files',table(['Part number','Product','Formats',''],P.map(p=>`<tr><td class="mono">${esc(p.part)}</td><td>${esc(p.name)}</td><td class="pg-note">STEP · DXF · EPLAN</td><td style="text-align:right"><button class="pg-link" type="button" data-chat="Please send STEP and DXF files for ${esc(p.part)}.">Request →</button></td></tr>`)))})}),
+
+    tools:()=>({crumb:'Resources / Config tools',html:page({eyebrow:'CONFIG TOOLS',title:'Size it right the first time.',
+      lead:'Quick calculators our engineers use every day. Results update as you type.',
+      body:sec('24 VDC power supply sizing',`<div class="tool"><div class="tool-in"><p class="pg-note" style="margin-bottom:14px">List each load and its current draw. Use peak or inrush current for HMIs and coils.</p><div class="tool-row"><label>Load</label><label>Qty</label><label>mA each</label><span></span></div><div id="psuRows">${PSU_DEF.map(r=>psuRow(...r)).join('')}</div><button class="pg-link" type="button" data-tool="psu-add">+ Add load</button></div><div class="tool-out" id="psuOut"></div></div>`)+
+        sec('Drive (VFD) sizing',`<div class="tool"><div class="tool-in"><p class="pg-note">Pick the motor nameplate horsepower and supply voltage. Full-load amps follow NEC Table 430.250 for three-phase induction motors.</p><div class="tool-pair"><div><label>Motor HP</label><select id="vfdHp" data-vfd>${[0.5,0.75,1,1.5,2,3,5,7.5,10,15,20,25,30].map(h=>`<option value="${h}"${h===5?' selected':''}>${h} HP</option>`).join('')}</select></div><div><label>Supply</label><select id="vfdV" data-vfd><option value="460">460 VAC, 3-phase</option><option value="230">230 VAC, 3-phase</option></select></div></div><div class="tool-pair"><div><label>Duty</label><select id="vfdDuty" data-vfd><option value="n">Normal (fans, pumps)</option><option value="h">Heavy (conveyors, mixers)</option></select></div></div></div><div class="tool-out" id="vfdOut"></div></div>`)})}),
+
+    'app-notes':()=>({crumb:'Resources / Application notes',html:page({eyebrow:'APPLICATION NOTES',title:'Field-tested answers to common design questions.',
+      lead:'Short, practical notes from our applications engineers. Need something specific? Ask, and we will write it up.',
+      cta:[bChat('Ask an engineer','I have a design question: ')],
+      body:acc([
+        ['Sizing a 24 VDC control power supply','Add up steady-state current for every load, then use peak current for HMIs, relay coils and solenoids. Size the supply for at least 25% headroom. For critical panels such as data center cooling, run two supplies through a redundancy module so one can fail without a shutdown.','POWER'],
+        ['EtherNet/IP or PROFINET?','Follow the controller. Allen-Bradley Logix platforms are native EtherNet/IP; Siemens S7-1200 and S7-1500 are native PROFINET. Mixed sites usually bridge the two with a gateway at the supervisory level rather than mixing protocols on one control network.','NETWORKS'],
+        ['Planning an S7-300 to S7-1500 migration','The S7-300 line is in Siemens\' product phase-out, so plan migrations before spares get scarce. TIA Portal can convert most STEP 7 projects. Many sites keep existing field I/O on PROFINET at first and replace the CPU, then migrate I/O in later outages.','MIGRATION'],
+        ['2-wire vs 4-wire analog transmitters','A 2-wire transmitter is powered by the 4–20 mA loop itself, so the input card or an external supply provides loop power. A 4-wire transmitter has its own supply and sources the current. Check whether your analog card supplies loop power before wiring.','I/O'],
+        ['Shielding analog signal cables','Ground the shield at one end only, normally at the control panel, to avoid ground loops. Route analog cables away from VFD output and motor leads, and cross power cables at right angles.','I/O'],
+        ['Replacing a legacy drive','Size the new drive by the motor\'s full-load amps, not horsepower alone. Check braking requirements, control wiring (2-wire vs 3-wire start), and the communication protocol before swapping. Copy the old parameters before removal if the drive still powers up.','DRIVES']])})}),
+
+    'knowledge-base':()=>({crumb:'Resources / Knowledge base',html:page({eyebrow:'KNOWLEDGE BASE',title:'Answers before you ask.',
+      lead:'Search common questions about ordering, parts and support.',
+      body:`<section><input class="pg-search" id="kbQ" type="search" placeholder="Search the knowledge base…" aria-label="Search knowledge base">`+acc([
+        ['How do I find a replacement for a discontinued part?','Send the part number in chat. We will confirm whether we stock it, offer a drop-in replacement if one exists, or quote a migration path.'],
+        ['What does "surplus" mean?','Surplus parts are unused stock from other buyers, sold in original or resealed packaging. Every surplus part is inspected and carries our 1-year warranty.'],
+        ['Do controllers ship with firmware?','Controllers ship with the firmware they were manufactured with. We can flash a specific revision before shipping on request.'],
+        ['Can a part be tested before it ships?','Yes. Power-up and I/O testing is available on most controllers and I/O modules. Ask when you order.'],
+        ['How do I set up NET 30 terms?','Request a credit application in chat. Most applications are reviewed within two business days.'],
+        ['Do you offer volume pricing?','Yes. Paste your parts list in chat for instant catalog pricing, then we review it for volume pricing within the hour.'],
+        ['Do you ship internationally?','We ship to Canada and Mexico directly and to most other countries through freight forwarders. Export documentation is included.'],
+        ['How do tax-exempt purchases work?','Send your exemption certificate once and it applies to every future order on your account.']],'kbList')+`</section>`})})
+  };
+
+  /* ---------- router ---------- */
+  const pg=$('#pg'), pgBody=$('#pgBody'), pgCrumb=$('#pgCrumb');
+  function render(){
+    const h=location.hash;
+    if(h.startsWith('#/')){
+      const parts=h.slice(2).split('/'); const name=parts.shift(); const arg=decodeURIComponent(parts.join('/'));
+      const fn=ROUTES[name];
+      if(fn){ const r=fn(arg); pgBody.innerHTML=r.html; pgCrumb.textContent=r.crumb; pg.classList.add('open'); pg.setAttribute('aria-hidden','false'); document.documentElement.classList.add('pg-lock'); pg.scrollTop=0; if(name==='tools'){calcPSU();calcVFD();} return; }
+    }
+    pg.classList.remove('open'); pg.setAttribute('aria-hidden','true'); document.documentElement.classList.remove('pg-lock');
+  }
+  const go=r=>{ location.hash='#/'+r; };
+  function leave(){ history.replaceState(null,'',location.pathname+location.search); render(); }
+  window.addEventListener('hashchange',render);
+  $('#pgBack').addEventListener('click',leave);
+
+  /* ---------- tools ---------- */
+  function calcPSU(){
+    const out=$('#psuOut'); if(!out) return;
+    let ma=0; document.querySelectorAll('#psuRows .tool-row').forEach(r=>{const i=r.querySelectorAll('input[data-psu]'); ma+=(parseFloat(i[0].value)||0)*(parseFloat(i[1].value)||0);});
+    const A=ma/1000, need=A*1.25, size=[2.5,5,10,20,40].find(s=>s>=need);
+    out.innerHTML=`<label>Total load</label><div class="tool-big">${A.toFixed(2)} A</div><div class="pg-note">${Math.round(ma).toLocaleString()} mA steady + peak</div><div class="tool-rec">${size?`Recommended: <b>${size} A</b> supply (${need.toFixed(2)} A with 25% headroom).`:`Load exceeds 40 A. Split it across multiple supplies.`} For critical panels, pair two supplies with a redundancy module.</div>${bChat('Quote a power supply',`I need a 24 VDC power supply, about ${need.toFixed(1)} A with headroom.`)}`;
+  }
+  function calcVFD(){
+    const out=$('#vfdOut'); if(!out) return;
+    const hp=parseFloat($('#vfdHp').value), v=$('#vfdV').value, heavy=$('#vfdDuty').value==='h';
+    const fla=FLA[v][hp]; const tgt=heavy?fla*1.5/1.1:fla;
+    out.innerHTML=`<label>Motor full-load amps</label><div class="tool-big">${fla} A</div><div class="pg-note">${hp} HP at ${v} VAC, 3-phase (NEC 430.250)</div><div class="tool-rec">Choose a drive rated for at least <b>${tgt.toFixed(1)} A</b> continuous output${heavy?' to cover 150% overload for heavy-duty starts':''}. ${heavy?'Heavy-duty loads often need one frame size up.':'Normal-duty ratings suit fans and centrifugal pumps.'}</div>${bChat('Quote a drive',`I need a drive for a ${hp} HP, ${v} VAC motor (${fla} A FLA), ${heavy?'heavy':'normal'} duty.`)}`;
+  }
+
+  /* ---------- quote desk chat ---------- */
+  const qd=$('#qd'), qb=$('#qdBody'), qi=$('#qdIn');
+  let greeted=false, busy=false, lastQ=null;
+  const scroll=()=>{ qb.scrollTop=qb.scrollHeight; };
+  const grow=()=>{ qi.style.height='auto'; qi.style.height=Math.min(qi.scrollHeight,120)+'px'; };
+  function msg(cls,content,text){ const d=document.createElement('div'); d.className='qm '+cls; if(text) d.textContent=content; else d.innerHTML=content; qb.appendChild(d); scroll(); return d; }
+  function bot(html,delay){ return new Promise(res=>{ const t=msg('bot typing','<i></i><i></i><i></i>'); setTimeout(()=>{ t.classList.remove('typing'); t.innerHTML=html; scroll(); res(t); },delay||500); }); }
+  function openChat(o){
+    o=o||{}; qd.classList.add('open'); qd.setAttribute('aria-hidden','false');
+    if(matchMedia('(max-width:600px)').matches) document.documentElement.classList.add('qd-lock');
+    if(!greeted){ greeted=true; msg('bot','Hi, this is the DATUM quote desk. Paste part numbers with quantities, one per line, and I will price anything in stock instantly. Questions about lead times, returns or specs are welcome too.'); }
+    if(o.msg){ qi.value=o.msg; grow(); }
+    setTimeout(()=>{ qi.focus(); const l=qi.value.length; qi.setSelectionRange(l,l); },180);
+  }
+  function closeChat(){ qd.classList.remove('open'); qd.setAttribute('aria-hidden','true'); document.documentElement.classList.remove('qd-lock'); }
+  $('#qdX').addEventListener('click',closeChat);
+
+  const PN_RE=/[0-9A-Z]{1,8}(?:[-\/][0-9A-Z]{1,12}){1,5}/gi;
+  function parsePN(text){
+    const out=[];
+    text.split(/\n|;/).forEach(line=>line.split(/,(?=\s*[0-9A-Z]{1,8}[-\/])/i).forEach(seg=>{
+      const re=new RegExp(PN_RE.source,'gi'); const hits=[]; let m;
+      while((m=re.exec(seg))){ const t=m[0]; if(/\d/.test(t)&&/[A-Z]/i.test(t)&&t.length>=5) hits.push({pn:t,s:m.index,e:m.index+t.length}); }
+      hits.forEach((hp,i)=>{
+        const before=seg.slice(i?hits[i-1].e:0,hp.s), after=seg.slice(hp.e,i<hits.length-1?hits[i+1].s:seg.length);
+        const ma=after.match(/^\s*[,:]?\s*(?:x|qty:?\s*)?(\d{1,5})(?=\s*(?:x|pcs|ea|units?)?(?:[\s,.;)]|$))/i);
+        const mb=before.match(/(\d{1,5})\s*(?:x|pcs|ea|units?|of)?\s*$/i);
+        const qty=Math.max(1,parseInt((ma&&ma[1])||(mb&&mb[1])||'1',10));
+        const p=findPart(hp.pn); const key=p?p.part:hp.pn.toUpperCase(); const ex=out.find(o=>o.key===key);
+        if(ex) ex.qty+=qty; else out.push({key,pn:hp.pn.toUpperCase(),qty,p});
+      });
+    }));
+    return out;
+  }
+  function quoteHTML(lines){
+    const ref='Q-'+String(Date.now()%1000000).padStart(6,'0');
+    const priced=lines.filter(l=>l.p), src=lines.filter(l=>!l.p);
+    let total=0;
+    const rows=lines.map(l=>{ if(l.p){ const ext=l.p.price*l.qty; total+=ext; return `<tr><td><span class="pn">${esc(l.p.part)}</span><span class="nm">${esc(l.p.name)}</span> ${stockPill(l.p)}</td><td class="r">${l.qty} × ${usd(l.p.price)}</td><td class="r"><b>${usd(ext)}</b></td></tr>`; }
+      return `<tr><td><span class="pn">${esc(l.pn)}</span><span class="nm">Sourcing</span> <span class="pill-s src">Quote</span></td><td class="r">${l.qty} ×</td><td class="r">—</td></tr>`; }).join('');
+    lastQ={ref,priced,src,total};
+    const intro=priced.length?(src.length?'Here is your instant quote. Items not in our online stock are being sourced.':'Here is your instant quote. In-stock parts ship today if you order before 6:00 PM ET.'):'None of those are in our online stock, but we can source them. Leave your email and an engineer will send firm pricing within one business hour.';
+    return `${intro}<div class="qq"><div class="qq-h"><span>QUOTE ${ref}</span><span>VALID 7 DAYS</span></div><table>${rows}</table>${priced.length?`<div class="qq-t"><span>Subtotal, ${priced.length} priced line${priced.length>1?'s':''}</span><b>${usd(total)}</b></div>`:''}${src.length&&priced.length?`<p class="qq-n">${src.length} line${src.length>1?'s':''} to quote by email within one business hour.</p>`:''}<div class="qa">${priced.length?'<button class="btn btn-signal btn-sm" type="button" data-qa="add">Add to order</button>':''}<button class="btn btn-ghost btn-sm" type="button" data-qa="email">Email me this quote</button></div></div>`;
+  }
+  function reply(t){
+    const s=t.toLowerCase();
+    if(/return|rma|refund/.test(s)) return 'Returns are accepted within 30 days for unused parts in original packaging. Send your order number and the part, and I will issue an RMA with a prepaid label. <a href="#/shipping" data-route="shipping">Return policy</a>';
+    if(/warrant|defect|failed|dead|doa/.test(s)) return 'Every part carries a 1-year DATUM warranty from delivery. Share the order number, part number and what you are seeing, and an engineer will arrange a replacement. <a href="#/warranty" data-route="warranty">Warranty details</a>';
+    if(/apply|job|career|hiring|role/.test(s)) return 'Thanks for your interest. <button class="lnk" type="button" data-qa="email">Leave your email</button> and our hiring team will send next steps.';
+    if(/cad|step|dxf|eplan|drawing|model/.test(s)) return 'I can send STEP, DXF and EPLAN files. Paste the part numbers and the formats you need. <a href="#/cad" data-route="cad">Browse the CAD library</a>';
+    if(/datasheet|spec sheet|manual|wiring/.test(s)) return 'Every catalog part has a printable spec sheet. <a href="#/datasheets" data-route="datasheets">Open datasheets</a>, or paste a part number and I will price it.';
+    if(/lead|ship|deliver|when|eta|stock|cutoff|track|status/.test(s)) return 'In-stock parts ship the same day when ordered before 6:00 PM ET, with free 2-day delivery. Non-stock items and large quantities get a confirmed lead time on your quote. Paste part numbers and quantities and I will check.';
+    if(/^(hi|hello|hey)\b/.test(s)) return 'Hi! Paste part numbers with quantities, or tell me what you are building.';
+    return 'Got it. Paste part numbers with quantities and I will price them instantly, or <button class="lnk" type="button" data-qa="email">leave your email</button> and an engineer will follow up.';
+  }
+  async function send(text){
+    text=(text||'').trim(); if(!text||busy) return; busy=true;
+    msg('me',text,true); qi.value=''; grow();
+    const lines=parsePN(text);
+    if(lines.length){ const el=await bot(quoteHTML(lines),650); el.classList.add('wide'); }
+    else await bot(reply(text));
+    busy=false;
+  }
+  qi.addEventListener('input',grow);
+  qi.addEventListener('keydown',e=>{ e.stopPropagation(); if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(qi.value); } });
+  $('#qdSend').addEventListener('click',()=>send(qi.value));
+  qd.querySelectorAll('[data-qd]').forEach(c=>c.addEventListener('click',()=>{
+    if(c.dataset.qd==='bom'){ bot('Paste one part per line with the quantity, like:<code>1756-L84ES/B, 2<br>5069-IF8/A x8<br>6AV2124-0MC01-0AX0 1</code>',300); qi.focus(); }
+    else send(c.dataset.qd);
+  }));
+  qb.addEventListener('click',e=>{
+    const a=e.target.closest('[data-qa]'); if(!a) return; e.preventDefault(); e.stopPropagation();
+    const k=a.dataset.qa;
+    if(k==='add'&&lastQ){
+      lastQ.priced.forEach(l=>{ const c=cart.find(x=>x.id===l.p.id); if(c) c.qty+=l.qty; else cart.push({id:l.p.id,qty:l.qty}); });
+      renderCart(); if(typeof bumpBadge==='function') bumpBadge();
+      bot(`Added ${lastQ.priced.length} line${lastQ.priced.length>1?'s':''} to your order. Opening it now.`,300).then(()=>setTimeout(()=>{ closeChat(); if(typeof openCart==='function') openCart(); else document.querySelector('[aria-label*="art" i]')?.click(); },700));
+    }
+    if(k==='email'){ const f=msg('bot',`Where should we send it?<div class="qd-email"><input type="email" placeholder="you@company.com" aria-label="Email" autocomplete="email"><button class="btn btn-signal btn-sm" type="button" data-qa="send-email">Send</button></div>`); setTimeout(()=>f.querySelector('input').focus(),100); }
+    if(k==='send-email'){
+      const inp=a.parentElement.querySelector('input'); const v=inp.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ inp.style.borderColor='#D64545'; inp.focus(); return; }
+      a.closest('.qm').remove(); msg('me',v,true);
+      bot(lastQ?`Done. Quote ${lastQ.ref} is on its way to <b>${esc(v)}</b>. An engineer will review it for volume pricing and reply within the hour.`:`Thanks. An engineer will reach out at <b>${esc(v)}</b> within the hour.`);
+    }
+  });
+
+  /* ---------- global wiring (capture phase) ---------- */
+  document.addEventListener('click',e=>{
+    const t=e.target;
+    const r=t.closest('[data-route]'); if(r){ e.preventDefault(); e.stopPropagation(); go(r.dataset.route); return; }
+    const c=t.closest('[data-chat]'); if(c){ e.preventDefault(); e.stopPropagation(); openChat({msg:c.dataset.chat}); return; }
+    const g=t.closest('[data-goto]'); if(g){ e.preventDefault(); e.stopPropagation(); leave(); setTimeout(()=>document.querySelector(g.dataset.goto)?.scrollIntoView({behavior:'smooth'}),60); return; }
+    const pr=t.closest('[data-print]'); if(pr){ e.preventDefault(); window.print(); return; }
+    const ad=t.closest('[data-add]'); if(ad){ e.preventDefault(); e.stopPropagation(); addToCart(+ad.dataset.add); return; }
+    const fc=t.closest('[data-fcat]'); if(fc){ e.preventDefault(); e.stopPropagation();
+      const lbl=(CAT_LABEL[fc.dataset.fcat]||'').toLowerCase();
+      const chip=[...document.querySelectorAll('#fCat button, #fCat .chip')].find(b=>b.textContent.trim().toLowerCase()===lbl);
+      if(chip) chip.click(); document.getElementById('catalog')?.scrollIntoView({behavior:'smooth'}); return; }
+    const dr=t.closest('.docrow'); if(dr){ e.preventDefault(); e.stopPropagation(); const i=[...document.querySelectorAll('.docrow')].indexOf(dr); go(['datasheet/'+enc('5069-L320ER/A'),'cad','datasheet/'+enc('2097-V33PR6/A')][i]||'datasheets'); return; }
+    const td=t.closest('[data-tool]'); if(td){ e.preventDefault();
+      if(td.dataset.tool==='psu-add'){ $('#psuRows').insertAdjacentHTML('beforeend',psuRow('New load',1,100)); calcPSU(); }
+      if(td.dataset.tool==='psu-del'){ td.closest('.tool-row').remove(); calcPSU(); } }
+  },true);
+  document.addEventListener('input',e=>{
+    const t=e.target;
+    if(t.closest('#psuRows')) calcPSU();
+    if(t.id==='dsQ'){ const q=t.value.toLowerCase().trim(); document.querySelectorAll('#dsT tbody tr').forEach(tr=>{ tr.style.display=!q||tr.dataset.s.includes(q)?'':'none'; }); }
+    if(t.id==='kbQ'){ const q=t.value.toLowerCase().trim(); document.querySelectorAll('#kbList details').forEach(d=>{ const hit=!q||d.textContent.toLowerCase().includes(q); d.style.display=hit?'':'none'; if(q&&hit) d.open=true; }); }
+  });
+  document.addEventListener('change',e=>{ if(e.target.matches('[data-vfd]')) calcVFD(); });
+  document.addEventListener('keydown',e=>{ if(e.key!=='Escape') return; if(qd.classList.contains('open')){ closeChat(); e.stopPropagation(); } else if(pg.classList.contains('open')){ leave(); e.stopPropagation(); } },true);
+  render();
 })();
 </script>
 </body>
