@@ -495,7 +495,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
 .modal-media svg{width:auto;height:200px}
 .modal-media img.modal-render{width:auto;max-width:82%;max-height:232px;object-fit:contain;filter:drop-shadow(0 18px 28px rgba(0,0,0,.3))}
 .modal-media .cat-tag{position:absolute;top:18px;left:18px;font-family:var(--f-mono);font-size:10.5px;color:var(--steel-2)}
-.modal-body{padding:28px;overflow-y:auto}
+.modal-body{padding:28px;overflow-y:auto;max-height:90vh;max-height:90dvh;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .modal-body .stock{margin-bottom:8px}
 .modal-body h2{font-size:23px;letter-spacing:-.02em;font-family:var(--f-display);line-height:1.1}
 .modal-body .part{font-family:var(--f-mono);font-size:12.5px;color:var(--info);margin-top:6px}
@@ -510,7 +510,7 @@ footer{background:var(--surface);border-top:1px solid var(--line);padding:56px 0
 .modal-buy .price{font-size:26px}
 .modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;z-index:2;color:var(--ink-2)}
 .modal-close:hover{color:var(--ink);border-color:var(--line-strong)}
-@media (max-width:680px){.modal{grid-template-columns:1fr;max-height:92vh}.modal-media{height:200px;border-right:0;border-bottom:1px solid var(--line)}.modal-media svg{height:150px}.modal-media img.modal-render{max-height:150px}}
+@media (max-width:680px){.modal{display:flex;flex-direction:column;max-height:92vh;max-height:calc(100dvh - 32px)}.modal-media{flex:0 0 auto}.modal-body{flex:1 1 auto;min-height:0;max-height:none;padding:22px 20px calc(22px + env(safe-area-inset-bottom))}.modal-media{height:200px;border-right:0;border-bottom:1px solid var(--line)}.modal-media svg{height:150px}.modal-media img.modal-render{max-height:150px}}
 
 /* toast */
 .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120%);background:#12161D;color:#fff;
@@ -1017,7 +1017,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
         <li><span class="dp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></span><div><b>Live stock and pricing</b><p>Real numbers on 14,000+ Allen-Bradley and Siemens parts, updated as you type.</p></div></li>
         <li><span class="dp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><b>Ships today before 6 PM ET</b><p>Picked, inspected and tracked the same business day.</p></div></li>
         <li><span class="dp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3M8 17h6"/></svg></span><div><b>Staged to your build schedule</b><p>Hold stock against a PO and release it hall by hall, phase by phase.</p></div></li>
-        <li><span class="dp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Covered for a full year</b><p>Every part carries a 1-year warranty, with advance replacement when a line is down.</p></div></li>
+        <li><span class="dp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Covered for two full years</b><p>Every part carries a 2-year warranty, with advance replacement when a line is down.</p></div></li>
       </ul>
     </div>
     <div class="dp-console" aria-label="Price and delivery date estimator">
@@ -1859,7 +1859,7 @@ document.body.addEventListener('keydown',e=>{
 /* ---------- quick view modal ---------- */
 const modalWrap=document.getElementById('modalWrap');
 const modal=document.getElementById('modal');
-const DISCLAIMER='Datum Automation (Datum Automation LLC) is NOT an Authorized Distributor or in any way affiliated with Rockwell Automation, Siemens or any other Manufacturers. Datum Automation is NOT Authorized Dealer of this product. The product may be of older version, date codes or design than that available from authorized dealers. As Datum Automation is not an authorized dealer of this product, the Original Manufacturer&#39;s Warranty and Support DO NOT apply. Datum Automation sells pre-owned SURPLUS and USED equipment ONLY and DOES NOT sell SOFTWARE or FIRMWARE licenses. Some hardware products may contain software and firmware and may not be legally operated without first obtaining a proper license from the manufacturer. Datum Automation makes no representation as to whether a product will or will not have software or firmware and, if it does, whether the software or firmware is the revision level that you need for your application. Datum Automation also makes no representations as to your ability or right to download or otherwise obtain software or firmware for the product from Original Manufacturer, its distributors, or any other source. Datum Automation also makes no representations as to your right to install any such software or firmware on the product. Datum Automation will not obtain or supply software or firmware on your behalf. It is your obligation to comply with the terms of any End-User License Agreement or similar document related to obtaining or installing software or firmware. Customer acknowledges and agrees that Datum Automation DOES NOT provide any software, firmware, operating system or right-to-use licenses with the products it sells. Customers understand and agree that proper software (firmware) licensing, maintenance and upgrades are subject to applicable manufacturer&#39;s Licensing Agreement or similar document.';
+const DISCLAIMER='Datum Automation (Datum Automation LLC) is NOT an Authorized Distributor or in any way affiliated with Rockwell Automation, Siemens or any other Manufacturers. Datum Automation is NOT Authorized Dealer of this product. The product may be of older version, date codes or design than that available from authorized dealers. As Datum Automation is not an authorized dealer of this product, the Original Manufacturer&#39;s Warranty and Support DO NOT apply. Instead, every product is covered by the Datum Automation 2-Year Warranty. Datum Automation sells pre-owned SURPLUS and USED equipment ONLY and DOES NOT sell SOFTWARE or FIRMWARE licenses. Some hardware products may contain software and firmware and may not be legally operated without first obtaining a proper license from the manufacturer. Datum Automation makes no representation as to whether a product will or will not have software or firmware and, if it does, whether the software or firmware is the revision level that you need for your application. Datum Automation also makes no representations as to your ability or right to download or otherwise obtain software or firmware for the product from Original Manufacturer, its distributors, or any other source. Datum Automation also makes no representations as to your right to install any such software or firmware on the product. Datum Automation will not obtain or supply software or firmware on your behalf. It is your obligation to comply with the terms of any End-User License Agreement or similar document related to obtaining or installing software or firmware. Customer acknowledges and agrees that Datum Automation DOES NOT provide any software, firmware, operating system or right-to-use licenses with the products it sells. Customers understand and agree that proper software (firmware) licensing, maintenance and upgrades are subject to applicable manufacturer&#39;s Licensing Agreement or similar document.';
 function openModal(id){
   const p=P.find(x=>x.id===id); if(!p)return;
   const rows=Object.entries(p.specs).map(([k,v])=>`<div><span class="sk">${k}</span><span class="sv">${v}</span></div>`).join('');
@@ -2036,7 +2036,7 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
           ['What if a part arrives damaged?','Tell us within 5 days of delivery and we ship a replacement immediately, before the damaged unit comes back.']]))})}),
 
     warranty:()=>({crumb:'Company / Warranty',html:page({eyebrow:'WARRANTY',title:'One year on every part we sell.',
-      lead:'New and surplus alike, every DATUM part is covered against defects for one year from delivery. If it fails, we replace it.',
+      lead:'New and surplus alike, every DATUM part is covered against defects for two years from delivery. If it fails, we replace it.',
       cta:[bChat('File a warranty claim','I need to file a warranty claim. Order number: '),bRoute('Return policy','shipping')],
       body:sec('Coverage',grid([
           ['Covered','Defects in materials and workmanship, failure to power up, and failures under normal operation within rated specifications.','INCLUDED'],
@@ -2098,7 +2098,7 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
       lead:'Search common questions about ordering, parts and support.',
       body:`<section><input class="pg-search" id="kbQ" type="search" placeholder="Search the knowledge base…" aria-label="Search knowledge base">`+acc([
         ['How do I find a replacement for a discontinued part?','Send the part number in chat. We will confirm whether we stock it, offer a drop-in replacement if one exists, or quote a migration path.'],
-        ['What does "surplus" mean?','Surplus parts are unused stock from other buyers, sold in original or resealed packaging. Every surplus part is inspected and carries our 1-year warranty.'],
+        ['What does "surplus" mean?','Surplus parts are unused stock from other buyers, sold in original or resealed packaging. Every surplus part is inspected and carries our 2-year warranty.'],
         ['Do controllers ship with firmware?','Controllers ship with the firmware they were manufactured with. We can flash a specific revision before shipping on request.'],
         ['Can a part be tested before it ships?','Yes. Power-up and I/O testing is available on most controllers and I/O modules. Ask when you order.'],
         ['How do I set up NET 30 terms?','Request a credit application in chat. Most applications are reviewed within two business days.'],
@@ -2184,7 +2184,7 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
   function reply(t){
     const s=t.toLowerCase();
     if(/return|rma|refund/.test(s)) return 'Returns are accepted within 30 days for unused parts in original packaging. Send your order number and the part, and I will issue an RMA with a prepaid label. <a href="#/shipping" data-route="shipping">Return policy</a>';
-    if(/warrant|defect|failed|dead|doa/.test(s)) return 'Every part carries a 1-year DATUM warranty from delivery. Share the order number, part number and what you are seeing, and an engineer will arrange a replacement. <a href="#/warranty" data-route="warranty">Warranty details</a>';
+    if(/warrant|defect|failed|dead|doa/.test(s)) return 'Every part carries a 2-year DATUM warranty from delivery. Share the order number, part number and what you are seeing, and an engineer will arrange a replacement. <a href="#/warranty" data-route="warranty">Warranty details</a>';
     if(/apply|job|career|hiring|role/.test(s)) return 'Thanks for your interest. <button class="lnk" type="button" data-qa="email">Leave your email</button> and our hiring team will send next steps.';
     if(/cad|step|dxf|eplan|drawing|model/.test(s)) return 'I can send STEP, DXF and EPLAN files. Paste the part numbers and the formats you need. <a href="#/cad" data-route="cad">Browse the CAD library</a>';
     if(/datasheet|spec sheet|manual|wiring/.test(s)) return 'Every catalog part has a printable spec sheet. <a href="#/datasheets" data-route="datasheets">Open datasheets</a>, or paste a part number and I will price it.';
