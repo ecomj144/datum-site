@@ -1171,6 +1171,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.eg-marq-t{animation:none}.eg-cell,.eg-cell::after{transition:none}}
 
 /* data center page */
+
 .pg-content>section{padding-top:0;padding-bottom:0}
 .pg-steps{padding:0;margin:0}
 .dcx section{padding:0}
@@ -1371,6 +1372,118 @@ html.call-lock,html.call-lock body{overflow:hidden}
   #dcKit td:nth-child(4){grid-column:3;grid-row:1;text-align:right!important;color:var(--steel);align-self:center}#dcKit td:nth-child(4)::before{content:'× '}
   #dcKit td:nth-child(5){display:none}#dcKit td:nth-child(6){grid-column:3;grid-row:2;text-align:right!important;font-weight:700}
 }
+/* data center v3: controls stack + layer system */
+.dcx-hero2{background:#0A0D12}
+.dcx-hero-ph{position:absolute;inset:0;background:var(--ph) 30% 40%/cover no-repeat;opacity:.28;filter:saturate(.8);mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.55) 45%,transparent 75%);-webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.55) 45%,transparent 75%)}
+.dcx-hero2::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(10,13,18,.82),rgba(10,13,18,.55) 50%,rgba(10,13,18,.2)),linear-gradient(0deg,#0A0D12,transparent 35%)}
+.dcx-hero2>*:not(.dcx-hero-ph){position:relative;z-index:1}
+.dcx-layers{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:30px;max-width:600px}
+.dcx-layers button{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font:inherit;text-align:left;color:#DDE3EA;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:11px 10px;cursor:pointer;backdrop-filter:blur(6px);transition:border-color .2s,background .2s,transform .2s}
+.dcx-layers button:hover{border-color:rgba(247,179,36,.55);background:rgba(247,179,36,.07);transform:translateY(-2px)}
+.dcx-lji{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(247,179,36,.12);color:#F7B324}
+.dcx-lji svg{width:16px;height:16px}
+.dcx-layers span:not(.dcx-lji){font-size:11.5px;line-height:1.3;color:#AEB8C4}
+.dcx-layers b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:#F7B324;margin-bottom:2px}
+/* stack */
+.dcs-sec{margin-top:-4px}
+.dcs{position:relative;overflow:hidden;background:linear-gradient(160deg,#121821 0%,#0B0F15 60%,#0D1118 100%);color:#E7ECF1;border:1px solid rgba(255,255,255,.07);border-radius:28px;padding:48px}
+.dcs-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(70% 70% at 25% 60%,#000,transparent 85%);-webkit-mask-image:radial-gradient(70% 70% at 25% 60%,#000,transparent 85%)}
+.dcs::after{content:"";position:absolute;left:-10%;bottom:-30%;width:55%;height:80%;pointer-events:none;background:radial-gradient(circle,rgba(242,169,0,.12),transparent 62%)}
+.dcs>*{position:relative;z-index:1}
+.dcs-head{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:end;margin-bottom:34px}
+.dcs-head .dcx-head{margin:0}
+.dcs-head .dcx-head h2{color:#fff}
+.dcs-head .dcx-eb{color:#94A0AD}.dcs-head .dcx-eb b{background:rgba(247,179,36,.14);color:#F7B324}
+.dcs-head>p{color:#AEB8C4;font-size:15.5px;line-height:1.6;max-width:470px;justify-self:end}
+.dcs-main{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:18px;align-items:stretch}
+.dcs-rack{display:flex;flex-direction:column;gap:7px;padding:14px;border-radius:20px;background:linear-gradient(180deg,#0A0E14,#080B10);border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 2px 12px rgba(0,0,0,.6)}
+.dcs-rail{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;color:#56616E;padding:2px 6px 6px}
+.dcs-rail.b{padding:6px 6px 2px;justify-content:center}
+.dcs-pulse{display:inline-flex;align-items:center;gap:7px;color:#5FD08A}
+.dcs-pulse i{width:6px;height:6px;border-radius:50%;background:#5FD08A;box-shadow:0 0 8px #5FD08A;animation:dcsBlink 2.4s ease-in-out infinite}
+@keyframes dcsBlink{50%{opacity:.35}}
+.dcs-u{position:relative;display:grid;grid-template-columns:14px 10px 30px 1fr auto 14px;align-items:center;gap:12px;width:100%;font:inherit;text-align:left;color:#B9C2CD;padding:14px 10px;border-radius:12px;cursor:pointer;background:linear-gradient(180deg,#1A212B,#141A22);border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 2px 0 rgba(0,0,0,.4);transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,background .25s,box-shadow .25s}
+.dcs-u{flex:1}
+.dcs-u:hover{border-color:rgba(255,255,255,.18);color:#fff}
+.dcs-u.on{transform:translateX(10px);border-color:rgba(247,179,36,.6);background:linear-gradient(180deg,#232B36,#1A212B);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 14px 30px -12px rgba(0,0,0,.8),0 0 0 4px rgba(247,179,36,.08)}
+.dcs-ear{display:flex;flex-direction:column;gap:10px;align-items:center}
+.dcs-ear i{width:6px;height:6px;border-radius:50%;background:#0B0F15;box-shadow:inset 0 1px 1px rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.08)}
+.dcs-led{width:8px;height:8px;border-radius:50%;background:#2E7D4F;box-shadow:0 0 6px rgba(95,208,138,.5)}
+.dcs-u.on .dcs-led{background:#F7B324;box-shadow:0 0 10px #F7B324,0 0 2px #fff}
+.dcs-n{font-family:var(--f-mono);font-size:12px;font-weight:700;color:#6E7A88;letter-spacing:.04em}
+.dcs-u.on .dcs-n{color:#F7B324}
+.dcs-ut{min-width:0}
+.dcs-ut b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
+.dcs-ut em{font-style:normal;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#6E7A88}
+.dcs-u.on .dcs-ut em{color:#94A0AD}
+.dcs-vent{display:none;width:44px;height:16px;background:repeating-linear-gradient(90deg,#0B0F15 0 3px,transparent 3px 6px);border-radius:2px;opacity:.8}
+.dcs-cnt{font-family:var(--f-mono);font-size:10.5px;color:#6E7A88;white-space:nowrap}
+.dcs-u:focus-visible{outline:2px solid #F7B324;outline-offset:2px}
+.dcs-detail{min-width:0;background:linear-gradient(180deg,#F8F9FB,#EFF2F5);color:#0C0F16;border-radius:20px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
+.dcs-d{padding:26px;display:flex;flex-direction:column;height:100%;animation:dcmIn .35s ease}
+.dcs-d-top{display:flex;align-items:center;gap:16px}
+.dcs-big{font-family:var(--f-display);font-weight:800;font-size:54px;line-height:.85;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.6px #F2A900}
+.dcs-eb{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;color:#7A5400}
+.dcs-d h3{font-family:var(--f-display);font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+.dcs-nav{margin-left:auto;display:inline-flex;gap:6px;align-self:flex-start}
+.dcs-nav button{width:34px;height:34px;border-radius:50%;border:1px solid #D5DAE0;background:#fff;color:#0C0F16;font-size:19px;line-height:1;cursor:pointer}
+.dcs-nav button:hover{border-color:#0C0F16}
+.dcs-desc{font-size:14.5px;color:#333B47;line-height:1.6;margin-top:16px}
+.dcs-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
+.dcs-k{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:#7C8794;margin:16px 0 8px}
+.dcs-w{display:flex;flex-wrap:wrap;gap:6px}
+.dcs-w span{font-size:12px;font-weight:500;color:#333B47;background:#fff;border:1px solid #DDE2E7;padding:4px 9px;border-radius:100px}
+.dcs-h{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.dcs-h li{position:relative;padding-left:20px;font-size:13px;color:#333B47}
+.dcs-h li::before{content:"";position:absolute;left:0;top:4px;width:12px;height:12px;border-radius:50%;background:#1F9D55 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/9px no-repeat}
+.dcs-parts{display:grid;grid-template-columns:1fr;gap:7px}
+.dcs-p{display:flex;gap:4px;min-width:0}
+.dcs-pv{flex:1;min-width:0;display:flex;align-items:center;gap:10px;font:inherit;text-align:left;color:inherit;background:#fff;border:1px solid #DDE2E7;border-radius:12px;padding:7px 10px 7px 7px;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.dcs-pv:hover{border-color:#0C0F16;box-shadow:0 6px 16px -8px rgba(12,15,22,.3)}
+.dcs-th{width:44px;height:44px;flex:none;border-radius:9px;background:radial-gradient(circle at 50% 38%,#FFFFFF,#E7EBEF);display:grid;place-items:center;overflow:hidden}
+.dcs-th img{max-width:38px;max-height:38px;object-fit:contain}
+.dcs-pt{flex:1;min-width:0}
+.dcs-pt b{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;font-weight:600;line-height:1.25}
+.dcs-pt span{display:flex;align-items:center;font-family:var(--f-mono);font-size:10.5px;color:#2C68C4;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dcs-pt .mfr-badge{margin-right:5px;font-size:0;gap:0}
+.dcs-pp{font-family:var(--f-mono);font-size:12px;font-weight:700;flex:none}
+.dcs-add{width:34px;flex:none;border-radius:12px;border:1px solid #DDE2E7;background:#fff;color:#0C0F16;display:grid;place-items:center;cursor:pointer;transition:all .2s}
+.dcs-add svg{width:15px;height:15px}
+.dcs-add:hover{background:#0C0F16;color:#fff;border-color:#0C0F16}
+.dcs-foot{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.dcs-foot span{font-size:12px;color:#7C8794}
+/* layer badges + rows */
+.dcl-b{display:inline-flex;align-items:center;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.04em;padding:2px 7px;border-radius:5px;vertical-align:middle;white-space:nowrap;color:var(--signal-ink);background:var(--signal-soft)}
+.dcl-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);margin-top:auto}
+.dcx-app .dcl-row{margin-top:auto}
+.dcx-app p+.dcl-row{margin-top:auto}
+.dcl-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;color:var(--steel)}
+.dcl{display:flex;gap:4px}
+.dcl i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:600 10.5px/1 var(--f-mono);font-style:normal;color:var(--steel-2);background:var(--surface-2);border:1px solid var(--line)}
+.dcl i.on{background:#F2A900;color:#0C0F16;border-color:#F2A900}
+.dcx-app.feat .dcl-row{border-color:rgba(255,255,255,.1)}
+.dcx-app.feat .dcl i{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);color:#6E7A88}
+.dcx-app.feat .dcl i.on{background:#F7B324;color:#0C0F16;border-color:#F7B324}
+.dcx-app.feat .dcl-k{color:#6E7A88}
+.dcx-app{padding-bottom:18px}
+.dcx-app:not(.feat){min-height:236px}
+/* process on dc page */
+.dcx-steps .dcx-st-i{margin-top:8px}
+#dcKit td:nth-child(3) .pg-link{font-size:11.5px;word-break:break-all;text-align:left}
+#dcKit td:nth-child(3){max-width:150px}
+.dcx-steps .dcx-st-i+.dcx-st-i{padding-top:12px;border-top:1px dashed var(--line)}
+.dcx-steps .dcx-st-i h3{font-size:16px}
+.dcx-steps .dcx-st-i p{font-size:13.5px;margin-top:3px}
+@media (max-width:1080px){.dcs-head{grid-template-columns:1fr;gap:14px}.dcs-head>p{justify-self:start}.dcs-main{grid-template-columns:1fr}.dcs-u.on{transform:none}}
+@media (max-width:600px){
+  .dcx-layers{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.dcx-layers button{padding:9px 6px;align-items:center;text-align:center}.dcx-layers span:not(.dcx-lji){font-size:0}.dcx-layers b{font-size:10.5px;margin:0}
+  .dcs{padding:26px 14px;border-radius:22px}.dcs-head{padding:0 4px}
+  .dcs-rack{padding:10px}.dcs-u{grid-template-columns:8px 28px 1fr auto;gap:10px;padding:12px}.dcs-ear,.dcs-vent{display:none}.dcs-cnt{font-size:10px}
+  .dcs-ut b{white-space:normal;font-size:13.5px;line-height:1.25}
+  .dcs-d{padding:20px 16px}.dcs-big{font-size:42px}.dcs-d h3{font-size:20px}.dcs-cols{grid-template-columns:1fr;gap:0}.dcs-parts{grid-template-columns:1fr}.dcs-pt b{-webkit-line-clamp:2;font-size:12.5px}
+  .dcx-app:not(.feat){min-height:0}.dcl-row{gap:6px}.dcl i{width:20px;height:20px}
+}
+@media (prefers-reduced-motion:reduce){.dcs-u,.dcs-d{transition:none;animation:none}.dcs-pulse i{animation:none}}
 </style>
 </head>
 <body>
@@ -2774,14 +2887,14 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
 
     'data-centers':()=>{
       const KIT=[
-        ['1','Skid controller','5069-L320ER/A',1,'Runs pump staging, supply-temperature and flow control, plus the lead/lag redundancy logic.',[473,156]],
-        ['2','Analog inputs','5069-IF8/A',2,'Reads supply and return temperatures, loop pressures, flow and filter differential pressure.',[496,232]],
-        ['3','On-skid I/O blocks','1732E-16CFGM12R/B',2,'IP67 blocks bolted to the frame for valve feedback, leak detection and level switches, so less wiring runs back to the panel.',[397,311]],
-        ['4','Operator HMI','2711P-T7C4D8/A',1,'Door-mounted screen for status, alarms, trends and manual pump control.',[494,96]],
-        ['5','Pump drive keypads','20-HIM-C6S/A',2,'Door-mounted keypads for the lead and lag pump drives, so techs can adjust without opening the panel.',[474,282]],
-        ['6','E-stop safety relay','440R-M23048/A',1,'Monitors the emergency-stop circuit and drops both pump drives to a safe state.',[575,240]],
-        ['7','Panel disconnect','194R-HS4/A',1,'Lockable main disconnect for maintenance and lockout/tagout.',[578,303]]
-      ].map(([n,fn,pn,q,why,xy])=>({n,fn,pn,q,why,xy,p:findPart(pn)})).filter(k=>k.p);
+        ['1','Skid controller','5069-L320ER/A',1,'Runs pump staging, supply-temperature and flow control, plus the lead/lag redundancy logic.',[473,195],1],
+        ['2','Analog inputs','5069-IF8/A',2,'Reads supply and return temperatures, loop pressures, flow and filter differential pressure.',[503,195],1],
+        ['3','Pump drives','20G1ANC022JA0NNNNN',2,'One PowerFlex 755 per pump holds loop differential pressure and trims speed at part load to cut energy.',[352,250],2],
+        ['4','Managed switch','1783-BMS10CL',1,'Segments the skid network and uplinks controller, HMI and drives to the plant BMS over a redundant ring.',[553,111],3],
+        ['5','Operator HMI','2711P-T7C4D8/A',1,'Door-mounted screen for status, alarms, trends and manual pump control.',[494,126],4],
+        ['6','24 VDC control power','PS6R-J24',1,'480 W supply with a DC-OK contact feeding the controller, I/O, switch and HMI.',[474,262],5],
+        ['7','Vibration monitoring','1444-DYN04-01RA',1,'Watches pump bearing vibration and speed, flagging wear before a pump fails.',[96,262],5]
+      ].map(([n,fn,pn,q,why,xy,L])=>({n,fn,pn,q,why,xy,L,p:findPart(pn)})).filter(k=>k.p);
       window.__DCKIT=KIT;
       const perSkid=KIT.reduce((s,k)=>s+k.p.price*k.q,0), units=KIT.reduce((s,k)=>s+k.q,0);
       const th=(p,c)=>(p.img||IMG[p.cat])?`<img class="${c}" src="${p.img||IMG[p.cat]}" alt="" loading="lazy" decoding="async">`:`<span class="${c}"></span>`;
@@ -2806,6 +2919,28 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
       };
       const ic=(k,c='dcx-ic')=>`<span class="${c}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg></span>`;
       const H=(n,eb,t,sub)=>`<div class="dcx-head"><span class="dcx-eb"><b>${n}</b>${eb}</span><h2>${t}</h2>${sub?`<p>${sub}</p>`:''}</div>`;
+      const LAY=window.__DCLAYERS=[
+        {n:1,k:'brain',t:'Primary control & automation',s:'The brain',d:'PLCs, safety controllers and distributed I/O that run sequencing, PID loops and lead/lag redundancy for every skid, CRAH and power panel on the campus.',w:['CDUs','Pump skids','CRAH units','EPMS panels'],h:['Redundant & safety-rated CPUs','Distributed I/O at the skid','EtherNet/IP & PROFINET native'],pn:['5069-L320ER/A','1756-L84ES/B','5069-IF8/A','5094-IM8XT']},
+        {n:2,k:'motor',t:'Motor & pump control',s:'Drives & protection',d:'Variable frequency drives and motor-circuit protection that hold flow and pressure on chilled-water pumps, CDU pumps and fan walls while cutting energy at part load.',w:['Chilled-water pumps','CDU pumps','Fan walls','Cooling towers'],h:['VFDs sized to motor FLA','Breakers & lockable disconnects','Keypads on the panel door'],pn:['20G1ANC022JA0NNNNN','20-HIM-C6S/A','140G-K6X3','194R-HS4/A']},
+        {n:3,k:'net',t:'Industrial networking & communications',s:'The backbone',d:'Managed switches, on-machine I/O and edge computers that keep controllers, HMIs and the BMS talking on segmented, ring-redundant networks.',w:['Control networks','DLR / PRP rings','BMS & EPMS uplinks','Edge analytics'],h:['Layer 2 & Layer 3 managed switching','Device Level Ring & PRP','Fanless edge gateways'],pn:['1783-HMS4EG8CGR','1783-BMS10CL','1732E-16CFGM12R/B','HX523']},
+        {n:4,k:'hmi',t:'HMI & local monitoring',s:'Eyes on the skid',d:'Operator panels and panel PCs that give technicians local status, alarms, trends and manual control at the equipment, without a walk back to the NOC.',w:['Skid doors','Plant rooms','Electrical rooms','Mechanical galleries'],h:['7" to 19" touch panels','Panel PCs for SCADA clients','Alarm & trend screens'],pn:['2711P-T7C4D8/A','6AV2124-0MC01-0AX0','6300P-156AAPSFDNB-3CBBW19NNNBNN-NN1S','6AV2124-1QC02-0AX0']},
+        {n:5,k:'pwr',t:'Power supplies & condition monitoring',s:'Uptime insurance',d:'Redundant 24 VDC control power and vibration monitoring that catch a failing supply or a worn bearing long before either becomes an outage.',w:['Control panels','Pump & fan bearings','Generator auxiliaries','UPS rooms'],h:['DC-OK relay contacts','Parallel / redundant supplies','Vibration, speed & position'],pn:['1606-XLS960E-3','PS6R-J24','PS6R-G24','1444-DYN04-01RA']}
+      ];
+      LAY.forEach(l=>{ l.P=l.pn.map(findPart).filter(Boolean); });
+      const LI={brain:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4M10 10h4v4h-4z"/>',
+        motor:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.2"/><path d="M12 4v5.8M12 14.2V20M4 12h5.8M14.2 12H20"/>',
+        net:'<rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-5h14v5"/>',
+        hmi:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/>',
+        pwr:'<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>'};
+      const lic=(k,c='dcs-li')=>`<span class="${c}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${LI[k]}</svg></span>`;
+      const lbadge=L=>`<span class="dcl-b l${L}" title="${esc(LAY[L-1].t)}">L${L}</span>`;
+      const lrow=on=>`<div class="dcl-row"><span class="dcl-k">CONTROL LAYERS</span><div class="dcl">${[1,2,3,4,5].map(n=>`<i class="${on.includes(n)?'on':''}" title="${esc(LAY[n-1].t)}">${n}</i>`).join('')}</div></div>`;
+      const rack=LAY.map((l,i)=>`<button type="button" class="dcs-u${i?'':' on'}" data-dcs="${i}" role="tab" aria-selected="${!i}"><span class="dcs-ear"><i></i><i></i></span><span class="dcs-led"></span><span class="dcs-n">L${l.n}</span><span class="dcs-ut"><b>${esc(l.t)}</b><em>${esc(l.s)}</em></span><span class="dcs-vent"></span><span class="dcs-cnt">${l.P.length} parts</span><span class="dcs-ear r"><i></i><i></i></span></button>`).join('');
+      const STACK=`<div class="dcs" id="dcsStack"><div class="dcs-grid"></div>
+        <div class="dcs-head"><div>${H('01','THE CONTROLS STACK','Five layers keep a data center cool and powered.','')}</div><p>Every mechanical and electrical system on campus runs on the same five layers of control hardware. Select a layer to see what it does, where it runs and the parts we stock for it.</p></div>
+        <div class="dcs-main"><div class="dcs-rack" role="tablist" aria-label="Control layers"><div class="dcs-rail"><span>RACK · DC-CTRL</span><span class="dcs-pulse"><i></i>All layers stocked</span></div>${rack}<div class="dcs-rail b"><span>NOC ⇄ BMS ⇄ FIELD</span></div></div>
+          <div class="dcs-detail" id="dcsDetail" aria-live="polite"></div></div></div>`;
+      const ljump=`<div class="dcx-layers">${LAY.map((l,i)=>`<button type="button" data-dcsjump="${i}">${lic(l.k,'dcx-lji')}<span><b>L${l.n}</b>${esc(l.s)}</span></button>`).join('')}</div>`;
 
       /* hero manifest (illustrative) */
       const st=['Staged','Staged','Staged','Picking','Queued'];
@@ -2838,24 +2973,24 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
       const tabs=KIT.map((k,i)=>`<button type="button" class="dcx-tab${i===0?' on':''}" data-dcpin="${i}"><b>${k.n}</b>${esc(k.fn)}</button>`).join('');
 
       /* kit table */
-      const kitRows=KIT.map(k=>`<tr><td class="mono dc-n">${k.n}</td><td><div class="dcx-comp">${th(k.p,'dcx-tthumb')}<div><b>${esc(k.fn)}</b><div class="pg-note">${esc(k.p.name)}</div></div></div></td><td class="mono"><button class="pg-link qv" type="button" data-id="${k.p.id}">${esc(k.p.part)}</button></td><td class="mono" style="text-align:center">${k.q}</td><td class="mono" style="text-align:right">${usd(k.p.price)}</td><td class="mono dc-ext" data-unit="${k.p.price*k.q}" data-q="${k.q}" style="text-align:right">${usd(k.p.price*k.q)}</td></tr>`);
+      const kitRows=KIT.map(k=>`<tr><td class="mono dc-n">${k.n}</td><td><div class="dcx-comp">${th(k.p,'dcx-tthumb')}<div><b>${esc(k.fn)}</b> ${lbadge(k.L)}<div class="pg-note">${esc(k.p.name)}</div></div></div></td><td class="mono"><button class="pg-link qv" type="button" data-id="${k.p.id}">${esc(k.p.part)}</button></td><td class="mono" style="text-align:center">${k.q}</td><td class="mono" style="text-align:right">${usd(k.p.price)}</td><td class="mono dc-ext" data-unit="${k.p.price*k.q}" data-q="${k.q}" style="text-align:right">${usd(k.p.price*k.q)}</td></tr>`);
 
       const APPS=[
-        ['cdu','LIQUID COOLING','Coolant distribution units','Direct-to-chip and rear-door CDUs. Redundant pumps, tight supply-temperature control and fast leak response.',['PLC','Analog I/O','On-skid I/O','HMI'],true],
-        ['pump','COOLING PLANT','Chilled-water pump skids','Primary and secondary pump packages with lead/lag staging and differential-pressure control.',['PLC','Drives','Analog I/O']],
-        ['air','AIRSIDE','Air handlers & CRAH units','Fan-wall and computer room air handler controls: fan drives, dampers, temperature and humidity loops.',['Drives','I/O','Sensors']],
-        ['power','ELECTRICAL','Power monitoring panels','EPMS and switchgear monitoring panels reporting to the BMS over Modbus TCP or EtherNet/IP.',['PLC','Analog I/O','Power supplies']],
-        ['gen','STANDBY POWER','Generator & fuel systems','Fuel polishing, day-tank transfer and generator auxiliary controls where every input has to read true.',['PLC','I/O','Safety relays']],
-        ['ups','CRITICAL POWER','UPS & battery rooms','Battery room monitoring: temperature and gas sensing, ventilation interlocks and alarm I/O back to the BMS.',['PLC','I/O','Sensors']],
-        ['water','HEAT REJECTION','Water treatment & towers','Cooling tower, dry cooler and makeup-water treatment skids: conductivity, level and chemical feed.',['PLC','Analog I/O','Drives']]
-      ].map(([k,m,t,d,tags,feat])=>`<article class="dcx-app${feat?' feat':''}">${ic(k)}<span class="dcx-meta">${m}</span><h3>${t}</h3><p>${d}</p><div class="dcx-tags">${tags.map(x=>`<span>${x}</span>`).join('')}</div>${feat?`<div class="dcx-featkit"><span>TYPICAL CDU KIT</span><div>${KIT.slice(0,4).map(k=>`<figure>${th(k.p,'')}<figcaption>${esc(k.p.part)}</figcaption></figure>`).join('')}</div></div><a class="dcx-jump" href="#dcxAnat" data-dcjump>See the parts inside a CDU <svg viewBox="0 0 24 24" fill="none" width="14"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>`:''}</article>`).join('');
+        ['cdu','LIQUID COOLING','Coolant distribution units','Direct-to-chip and rear-door CDUs. Redundant pumps, tight supply-temperature control and fast leak response.',[1,2,3,4,5],true],
+        ['pump','COOLING PLANT','Chilled-water pump skids','Primary and secondary pump packages with lead/lag staging and differential-pressure control.',[1,2,4,5]],
+        ['air','AIRSIDE','Air handlers & CRAH units','Fan-wall and computer room air handler controls: fan drives, dampers, temperature and humidity loops.',[1,2,3]],
+        ['power','ELECTRICAL','Power monitoring panels','EPMS and switchgear monitoring panels reporting to the BMS over Modbus TCP or EtherNet/IP.',[1,3,4,5]],
+        ['gen','STANDBY POWER','Generator & fuel systems','Fuel polishing, day-tank transfer and generator auxiliary controls where every input has to read true.',[1,2,5]],
+        ['ups','CRITICAL POWER','UPS & battery rooms','Battery room monitoring: temperature and gas sensing, ventilation interlocks and alarm I/O back to the BMS.',[1,3,5]],
+        ['water','HEAT REJECTION','Water treatment & towers','Cooling tower, dry cooler and makeup-water treatment skids: conductivity, level and chemical feed.',[1,2,4]]
+      ].map(([k,m,t,d,tags,feat])=>`<article class="dcx-app${feat?' feat':''}">${ic(k)}<span class="dcx-meta">${m}</span><h3>${t}</h3><p>${d}</p>${lrow(tags)}${feat?`<div class="dcx-featkit"><span>TYPICAL CDU KIT</span><div>${KIT.slice(0,4).map(k=>`<figure>${th(k.p,'')}<figcaption>${esc(k.p.part)}</figcaption></figure>`).join('')}</div></div><a class="dcx-jump" href="#dcxAnat" data-dcjump>See the parts inside a CDU <svg viewBox="0 0 24 24" fill="none" width="14"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>`:''}</article>`).join('');
 
       const PHASES=[
         ['Quote','Day 0',[['Send the BOM','Paste part numbers in chat or email your bill of materials and drawings. Partial lists are fine.'],['Priced within the hour','Every line comes back with price, stock position, lead time and approved alternates flagged.']]],
         ['Lock','Week 1',[['Program pricing','Repeat builds across phases and sites are held to agreed pricing for the program term.'],['Flash and bench test','Controllers loaded to your firmware revision, with power-up and I/O testing on request.']]],
         ['Kit & stage','Build window',[['Kitted per skid','Parts bagged and labeled by skid serial and panel, with packing lists keyed to your BOM line numbers.'],['Released to schedule','Deliveries follow your fabrication sequence, so the shop floor is not a warehouse.']]],
         ['Deliver & support','Handover →',[['Shop or site','Same-day parcel before 6 PM ET, or palletized freight straight to the integration shop or job site.'],['Spares on the shelf','Critical spares kits matched to the as-built BOM, so operations has the right part on hand.']]]
-      ].map(([t,w,items],i)=>`<li class="dcx-phase"><div class="dcx-node"><span>${i+1}</span></div><div class="dcx-ph-h"><b>${t}</b><em>${w}</em></div>${items.map(([b,s])=>`<div class="dcx-ph-i"><b>${b}</b><p>${s}</p></div>`).join('')}</li>`).join('');
+      ].map(([t,w,items],i)=>`<li class="eg-step"><div class="eg-step-top"><span class="eg-num">0${i+1}</span><span class="eg-when">${w}</span></div><span class="eg-node"></span><span class="eg-meta">${t.toUpperCase()}</span>${items.map(([b,x])=>`<div class="dcx-st-i"><h3>${b}</h3><p>${x}</p></div>`).join('')}</li>`).join('');
 
       const FEATS=[
         ['std','One standard, every site','Send your site standard once. We quote to it on every phase and never substitute without your approval.'],
@@ -2877,15 +3012,16 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
         ['Can you hold pricing across a multi-phase campus?','Yes. Program pricing is set per project for an agreed term and reviewed as volumes change.']]);
 
       const bom='I am building data center skids and want a quote on this bill of materials: ';
+      const PHO={}; try{ PHO.panel=document.querySelector('.app-band .app-bg')?.src||''; PHO.pump=(typeof APPIMG!=='undefined'&&APPIMG['Water'])||''; }catch(e){}
       const html=`<div class="dcx">
-      <header class="dcx-hero"><div class="dcx-grid"></div><div class="dcx-glow"></div>
+      <header class="dcx-hero dcx-hero2"${PHO.panel?` style="--ph:url('${PHO.panel}')"`:''}><div class="dcx-hero-ph"></div><div class="dcx-grid"></div><div class="dcx-glow"></div>
         <div class="wrap dcx-hero-in">
           <div class="dcx-copy">
             <span class="dcx-pill"><i></i>DATA CENTERS &amp; HYPERSCALE</span>
-            <h1>Controls hardware for data center skids. <span>Kitted per skid.</span> <span>On schedule.</span></h1>
-            <p class="dcx-lead">DATUM supplies the PLCs, I/O, HMIs and drive components inside CDUs, pump skids and power monitoring panels: quoted line by line, kitted per skid serial and released to your build schedule.</p>
+            <h1>Data center hardware, sourced in one place. <span>One quote. One kit.</span></h1>
+            <p class="dcx-lead">Send one BOM for every PLC, drive, switch, HMI and power supply on your skids. We price it within the hour, kit it per skid and ship it to your build schedule.</p>
             <div class="dcx-cta"><button class="btn btn-signal" type="button" data-chat="${esc(bom)}">Send your skid BOM <svg viewBox="0 0 24 24" fill="none" width="16"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="btn dcx-ghost" type="button" data-call>Call an engineer</button></div>
-            <div class="dcx-proto">Allen-Bradley · Siemens · EtherNet/IP · PROFINET · Modbus TCP</div>
+            ${ljump}
           </div>
           <div class="dcx-man-wrap">
             <div class="dcx-chip a"><i></i>Ships before 6 PM ET</div>
@@ -2903,17 +3039,19 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
       </header>
 
       <div class="wrap dcx-body">
-        <section class="dcx-sec">${H('01','APPLICATIONS','Seven systems. One controls core.','The same PLCs, I/O, HMIs and drives run nearly every mechanical and electrical package on a data center campus. We stock that core and kit it to your build.')}
+        <section class="dcx-sec dcs-sec">${STACK}</section>
+
+        <section class="dcx-sec">${H('02','APPLICATIONS','Seven systems. Five layers each.','Every mechanical and electrical package on campus draws on the same control layers. Each card shows which layers that system uses.')}
           <div class="dcx-apps">${APPS}</div></section>
 
-        <section class="dcx-sec" id="dcxAnat">${H('02','ANATOMY','Inside a coolant distribution unit.','A redundant-pump CDU and the seven controls components we kit for it. Select a numbered point to see the part, its job on the skid and its price.')}
+        <section class="dcx-sec" id="dcxAnat">${H('03','ANATOMY','Inside a coolant distribution unit.','A redundant-pump CDU and the seven components we kit for it, across all five control layers. Select a numbered point to see the part, its job on the skid and its price.')}
           <div class="dcx-explore">
             <div class="dcx-bp"><div class="dcx-bp-h"><span>CDU-A · REDUNDANT PUMP · ELEVATION</span><span class="dcx-legend"><i class="h"></i>Supply<i class="c"></i>Return</span></div><div class="dcx-fig"><div class="dcx-fig-in">${svg}${pins}</div></div></div>
             <div class="dcx-detail" id="dcxDetail" aria-live="polite"></div>
           </div>
           <div class="dcx-tabs" role="tablist">${tabs}</div></section>
 
-        <section class="dcx-sec">${H('03','REFERENCE KIT','Price the whole build in seconds.','Catalog pricing for every controls component on the CDU above. Set your skid count for a program total; pump drives are sized to your motors and quoted separately.')}
+        <section class="dcx-sec">${H('04','REFERENCE KIT','Price the whole build in seconds.','Catalog pricing for every component on the CDU above, all five layers included. Set your skid count for a program total.')}
           <div class="dcx-kit">
             <div class="dcx-kit-t">${table(['#','Component','Part number','Qty','Unit','Per skid'],kitRows,'dcKit')}<p class="pg-note" style="margin-top:10px">Catalog prices shown. Multi-skid programs are reviewed for volume pricing, usually within the hour.</p></div>
             <aside class="dcx-sum">
@@ -2924,29 +3062,29 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
               <div class="dcx-sum-tot"><span>Build total</span><b id="dcTot">${usd(perSkid*12)}</b></div>
               <button class="btn btn-signal dcx-full" type="button" data-kit>Add kit to order</button>
               <button class="btn btn-ghost dcx-full" type="button" data-chat="I want program pricing on the DATUM CDU controls kit. Number of skids: ">Get program pricing</button>
-              <button class="pg-link dcx-sz" type="button" data-route="tools">Size the pump drives →</button>
+              <button class="pg-link dcx-sz" type="button" data-route="tools">Size drives to your motors →</button>
             </aside>
           </div></section>
 
-        <section class="dcx-sec">${H('04','PROCESS','From BOM to energized skid.','One engineer owns your program from the first quote through handover spares.')}
-          <ol class="dcx-time">${PHASES}</ol></section>
+        <section class="dcx-sec">${H('05','PROCESS','From BOM to energized skid.','One engineer owns your program from the first quote through handover spares.')}
+          <ol class="eg-steps dcx-steps">${PHASES}</ol></section>
 
         <section class="dcx-sec dcx-prog-sec">
-          <div class="dcx-who">${H('05','PROGRAMS','Built for hyperscale programs.','Campus builds repeat the same skid dozens of times across phases and sites. We are set up for that.')}
+          <div class="dcx-who">${H('06','PROGRAMS','Built for hyperscale programs.','Campus builds repeat the same skid dozens of times across phases and sites. We are set up for that.')}
             <span class="dcx-who-k">WHO WE WORK WITH</span><ul class="dcx-who-l">${WHO}</ul></div>
           <div class="dcx-feats">${FEATS}</div></section>
 
         <section class="dcx-sec dcx-faq">
-          <div>${H('06','FAQ','Data center questions.','Straight answers on what we do, what we do not, and how programs run.')}<button class="btn btn-ghost" type="button" data-chat="I have a question about a data center program: ">Ask an engineer</button></div>
+          <div>${H('07','FAQ','Data center questions.','Straight answers on what we do, what we do not, and how programs run.')}<button class="btn btn-ghost" type="button" data-chat="I have a question about a data center program: ">Ask an engineer</button></div>
           ${FAQ}</section>
 
-        <section class="dcx-final">
+        <section class="dcx-final eg-final"${PHO.pump?` style="--ph:url('${PHO.pump}')"`:''}><div class="eg-final-ph"></div>
           <div><span class="dcx-pill"><i></i>START A PROGRAM</span><h2>Building out a campus? Send the BOM.</h2><p>An engineer prices every line, flags lead-time risks and replies within the hour.</p>
             <div class="dcx-cta"><button class="btn btn-signal" type="button" data-chat="${esc(bom)}">Send your skid BOM</button><button class="btn dcx-ghost" type="button" data-call>Call an engineer</button></div></div>
           <ul class="dcx-send"><li class="dcx-send-k">WHAT TO SEND</li><li>${ic('chk','dcx-chk')}Parts list or BOM, any format</li><li>${ic('chk','dcx-chk')}Site standard or approved parts list</li><li>${ic('chk','dcx-chk')}Skid count and build dates</li><li>${ic('chk','dcx-chk')}Ship-to: shop, site or both</li></ul>
         </section>
       </div></div>`;
-      setTimeout(()=>window.__dcxSel&&window.__dcxSel(0),0);
+      setTimeout(()=>{ window.__dcxSel&&window.__dcxSel(0); window.__dcsSel&&window.__dcsSel(0); },0);
       return {crumb:'Solutions / Data centers',html};
     },
 
@@ -3121,13 +3259,29 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
     i=(i+K.length)%K.length; const k=K[i], p=k.p;
     document.querySelectorAll('[data-dcpin]').forEach(b=>{ const on=+b.dataset.dcpin===i; b.classList.toggle('on',on); if(b.classList.contains('dcx-tab')) b.setAttribute('aria-selected',on); });
     d.innerHTML=`<div class="dcx-d-img">${(p.img||IMG[p.cat])?`<img src="${p.img||IMG[p.cat]}" alt="${esc(p.name)}">`:''}<span class="dcx-d-n">${k.n}<em>/ ${K.length}</em></span></div>
-      <div class="dcx-d-body"><span class="dcx-meta">${esc(k.fn)}</span><h3>${esc(p.name)}</h3>
+      <div class="dcx-d-body"><span class="dcx-meta">${esc(k.fn)}${k.L&&window.__DCLAYERS?` <span class="dcl-b l${k.L}">L${k.L} · ${esc(window.__DCLAYERS[k.L-1].s)}</span>`:''}</span><h3>${esc(p.name)}</h3>
       <div class="part"><span class="mfr-badge ${mfrCls(p.mfr)}">${esc(p.mfr)}</span>${esc(p.part)}</div>
       <p>${esc(k.why)}</p>
       <div class="dcx-d-stats"><div><span>Qty / skid</span><b>${k.q}</b></div><div><span>Unit</span><b>${usd(p.price)}</b></div><div><span>Stock</span><b class="${p.stock==='in'?'ok':'low'}">${p.stock==='in'?'In stock':'Low stock'}</b></div></div>
       <div class="dcx-d-act"><button class="btn btn-primary" type="button" data-dcview="${p.id}">View specs</button><button class="btn btn-ghost" type="button" data-add="${p.id}">Add to order</button>
       <span class="dcx-d-nav"><button type="button" data-dcnav="-1" aria-label="Previous part">‹</button><button type="button" data-dcnav="1" aria-label="Next part">›</button></span></div></div>`;
     d.dataset.i=i;
+  };
+  window.__dcsSel=function(i,focus){
+    const L=window.__DCLAYERS, d=document.getElementById('dcsDetail'); if(!L||!d) return;
+    i=(i+L.length)%L.length; const l=L[i];
+    document.querySelectorAll('.dcs-u').forEach(b=>{ const on=+b.dataset.dcs===i; b.classList.toggle('on',on); b.setAttribute('aria-selected',on); });
+    const from=l.P.length?Math.min(...l.P.map(p=>p.price)):0;
+    d.innerHTML=`<div class="dcs-d" data-l="${l.n}">
+      <div class="dcs-d-top"><span class="dcs-big">0${l.n}</span><div><span class="dcs-eb">LAYER ${l.n} · ${esc(l.s.toUpperCase())}</span><h3>${esc(l.t)}</h3></div>
+        <span class="dcs-nav"><button type="button" data-dcsnav="-1" aria-label="Previous layer">‹</button><button type="button" data-dcsnav="1" aria-label="Next layer">›</button></span></div>
+      <p class="dcs-desc">${esc(l.d)}</p>
+      <div class="dcs-cols"><div><span class="dcs-k">WHERE IT RUNS</span><div class="dcs-w">${l.w.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>
+        <div><span class="dcs-k">WHAT WE COVER</span><ul class="dcs-h">${l.h.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
+      <span class="dcs-k">PARTS IN STOCK</span>
+      <div class="dcs-parts">${l.P.map(p=>`<div class="dcs-p"><button type="button" class="dcs-pv" data-dcview="${p.id}"><span class="dcs-th">${(p.img||IMG[p.cat])?`<img src="${p.img||IMG[p.cat]}" alt="" loading="lazy">`:''}</span><span class="dcs-pt"><b>${esc(p.name)}</b><span><i class="mfr-badge ${mfrCls(p.mfr)}"></i>${esc(p.part)}</span></span><span class="dcs-pp">${usd(p.price).replace('.00','')}</span></button>${p.soon?'':`<button type="button" class="dcs-add" data-add="${p.id}" aria-label="Add ${esc(p.name)} to order"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>`}</div>`).join('')}</div>
+      <div class="dcs-foot"><button type="button" class="btn btn-signal" data-chat="I need a quote for ${esc(l.t)} hardware for a data center project. Parts list: ">Quote this layer</button><span>${l.P.length} parts shown from ${usd(from).replace('.00','')} · catalog pricing</span></div></div>`;
+    if(focus) document.querySelector('.dcs-u.on')?.focus();
   };
   function dcCalc(){
     const inp=document.getElementById('dcSkids'); if(!inp) return;
@@ -3139,6 +3293,9 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
   }
   document.addEventListener('input',e=>{ if(e.target.id==='dcSkids') dcCalc(); });
   document.addEventListener('click',e=>{
+    const su=e.target.closest('[data-dcs]'); if(su){ window.__dcsSel(+su.dataset.dcs); if(innerWidth<981) document.getElementById('dcsDetail')?.scrollIntoView({behavior:'smooth',block:'nearest'}); return; }
+    const sn=e.target.closest('[data-dcsnav]'); if(sn){ const cur=+(document.querySelector('.dcs-u.on')?.dataset.dcs||0); window.__dcsSel(cur+(+sn.dataset.dcsnav)); return; }
+    const sj=e.target.closest('[data-dcsjump]'); if(sj){ window.__dcsSel(+sj.dataset.dcsjump); document.getElementById('dcsStack')?.scrollIntoView({behavior:'smooth',block:'start'}); return; }
     const pin=e.target.closest('[data-dcpin]'); if(pin){ window.__dcxSel(+pin.dataset.dcpin); if(pin.classList.contains('dcx-tab')&&innerWidth<901) document.getElementById('dcxDetail')?.scrollIntoView({behavior:'smooth',block:'nearest'}); return; }
     const dv=e.target.closest('[data-dcview]'); if(dv){ openModal(+dv.dataset.dcview); return; }
     const nv=e.target.closest('[data-dcnav]'); if(nv){ const d=document.getElementById('dcxDetail'); window.__dcxSel((+d.dataset.i||0)+(+nv.dataset.dcnav)); return; }
@@ -3151,7 +3308,7 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
         const line=cart.find(l=>l.id===id); if(line) line.qty+=q*n; else cart.push({id,qty:q*n}); lines++; });
       renderCart(); bumpBadge(); leave(); setTimeout(()=>{ openCart(); toast(`Added ${lines}-line CDU kit × ${n} skids`); },80); }
   });
-  document.addEventListener('keydown',e=>{ if(!document.getElementById('dcxDetail')) return; if(e.target.closest&&e.target.closest('.dcx-tabs')&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){ e.preventDefault(); const d=document.getElementById('dcxDetail'); window.__dcxSel((+d.dataset.i||0)+(e.key==='ArrowRight'?1:-1)); document.querySelector('.dcx-tab.on')?.focus(); } });
+  document.addEventListener('keydown',e=>{ if(e.target.classList&&e.target.classList.contains('dcs-u')&&/Arrow(Up|Down)/.test(e.key)){ e.preventDefault(); window.__dcsSel(+e.target.dataset.dcs+(e.key==='ArrowDown'?1:-1),true); return; } if(!document.getElementById('dcxDetail')) return; if(e.target.closest&&e.target.closest('.dcx-tabs')&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){ e.preventDefault(); const d=document.getElementById('dcxDetail'); window.__dcxSel((+d.dataset.i||0)+(e.key==='ArrowRight'?1:-1)); document.querySelector('.dcx-tab.on')?.focus(); } });
 
   /* ---------- engineering services lead form ---------- */
   (function(){
