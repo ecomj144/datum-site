@@ -377,7 +377,20 @@ section{padding:76px 0}
 .app-band{background:linear-gradient(155deg,#141a22,#0b0e13);color:#E7ECF1;border:1px solid rgba(255,255,255,.06);border-radius:var(--r-xl);padding:44px;position:relative;overflow:hidden}
 .app-band::before{content:"";position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(90% 100% at 85% 0%,#000,transparent 70%)}
 .app-band .app-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 45%;opacity:.20;filter:saturate(.92) contrast(1.02);z-index:0;pointer-events:none;mask-image:linear-gradient(90deg,transparent 4%,#000 62%)}
-.app-band .ah,.app-band .app-grid{z-index:2}
+.app-band .ah,.app-band .app-grid,.app-band .app-eng{z-index:2}
+.app-eng{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;margin-top:14px;padding:18px 18px 18px 20px;border-radius:16px;background:linear-gradient(100deg,rgba(247,179,36,.12),rgba(247,179,36,.03) 45%,rgba(255,255,255,.03));border:1px solid rgba(247,179,36,.28);backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
+.app-eng:hover{border-color:rgba(247,179,36,.55)}
+.app-eng-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:rgba(247,179,36,.14);color:#F7B324;flex:none}
+.app-eng-ic svg{width:22px;height:22px}
+.app-eng-t{min-width:0}
+.app-eng-k{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:#F7B324}
+.app-eng-t b{display:block;font-size:16.5px;font-weight:700;color:#fff;letter-spacing:-.01em;margin-top:3px}
+.app-eng-t span:last-child{display:block;font-size:13.5px;color:#A7B2BE;margin-top:3px;line-height:1.5}
+.app-eng-tags{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:250px}
+.app-eng-tags li{font-family:var(--f-mono);font-size:10.5px;color:#C9D2DC;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:4px 8px;border-radius:6px;white-space:nowrap}
+.app-eng-btn{white-space:nowrap}
+@media (max-width:1180px){.app-eng-tags{display:none}.app-eng{grid-template-columns:auto 1fr auto}}
+@media (max-width:760px){.app-eng{grid-template-columns:auto 1fr;gap:14px 16px;padding:16px}.app-eng-btn{grid-column:1/-1;width:100%}}
 .app-band .ah{position:relative;max-width:520px;margin-bottom:32px}
 .app-band .ah h2{color:#fff;font-size:clamp(26px,3vw,36px)}
 .app-band .ah p{color:#A7B2BE;margin-top:12px;font-size:15px}
@@ -1484,6 +1497,209 @@ html.call-lock,html.call-lock body{overflow:hidden}
   .dcx-app:not(.feat){min-height:0}.dcl-row{gap:6px}.dcl i{width:20px;height:20px}
 }
 @media (prefers-reduced-motion:reduce){.dcs-u,.dcs-d{transition:none;animation:none}.dcs-pulse i{animation:none}}
+/* quality & authenticity — inspection bench */
+.qx{position:relative;padding:120px 0 128px;margin:40px 0 0;background:#080B10;color:#E7ECF1;overflow:hidden;isolation:isolate}
+.qx-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 50% at 30% 52%,rgba(242,169,0,.07),transparent 70%),radial-gradient(40% 40% at 85% 0%,rgba(127,168,216,.06),transparent 70%),
+  linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px) 0 0/40px 40px}
+.qx-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(#080B10,transparent 14%,transparent 86%,#080B10)}
+.qx-head{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.qx-eb{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:#8C97A4}
+.qx-eb i{width:22px;height:1.5px;background:#F2A900}
+.qx h2{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,5.4vw,76px);line-height:.98;letter-spacing:-.045em;margin-top:22px;color:#fff}
+.qx h2 span{display:block}
+.qx-amber{color:#F7B324;background:linear-gradient(90deg,#F2A900,#FFD36E 55%,#F2A900);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.qx-head-r p{font-size:16.5px;line-height:1.6;color:#AEB8C4;max-width:460px}
+.qx-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.qx-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+.qx-ghost:hover{border-color:rgba(255,255,255,.55)}
+.qx-specs{display:flex;gap:0;margin:30px 0 0;border-top:1px solid rgba(255,255,255,.09)}
+.qx-specs div{flex:1;padding:16px 16px 0 0}
+.qx-specs div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.09)}
+.qx-specs dt{font-family:var(--f-display);font-weight:800;font-size:24px;letter-spacing:-.03em;color:#fff}
+.qx-specs dd{margin:3px 0 0;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#6E7A88}
+/* stage */
+.qx-stage{position:relative;border-radius:28px;background:linear-gradient(180deg,#10151C,#0B0F14);border:1px solid rgba(255,255,255,.08);box-shadow:0 60px 120px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.05)}
+.qx-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
+.qx-sel{display:flex;gap:6px;padding:4px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+.qx-sel button{display:flex;align-items:center;gap:10px;font:inherit;text-align:left;color:#94A0AD;background:transparent;border:0;border-radius:12px;padding:6px 14px 6px 6px;cursor:pointer;transition:background .25s,color .25s}
+.qx-sel button:hover{color:#fff;background:rgba(255,255,255,.04)}
+.qx-sel button.on{background:#1C232D;color:#fff;box-shadow:inset 0 0 0 1px rgba(247,179,36,.45),0 8px 20px -10px rgba(0,0,0,.8)}
+.qx-sel-t{width:34px;height:34px;border-radius:9px;background:radial-gradient(circle at 50% 40%,#2A323E,#151B23);display:grid;place-items:center;overflow:hidden;flex:none}
+.qx-sel-t img{max-width:28px;max-height:28px;object-fit:contain}
+.qx-sel b{display:block;font-size:13.5px;font-weight:600}
+.qx-sel em{display:block;font-style:normal;font-family:var(--f-mono);font-size:10px;color:#6E7A88;margin-top:1px}
+.qx-sel button.on em{color:#F7B324}
+.qx-sel button:focus-visible,.qx-cp button:focus-visible,.qx-replay:focus-visible{outline:2px solid #F7B324;outline-offset:2px}
+.qx-live{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:#94A0AD;text-transform:uppercase}
+.qx-dot{width:7px;height:7px;border-radius:50%;background:#F7B324;box-shadow:0 0 10px #F7B324}
+.qx-stage.playing .qx-dot{animation:qxBlink 1.1s ease-in-out infinite}
+.qx-stage.done .qx-dot{background:#5FD08A;box-shadow:0 0 10px #5FD08A}
+@keyframes qxBlink{50%{opacity:.3}}
+.qx-replay{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:11px;letter-spacing:.06em;color:#DDE3EA;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 11px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s}
+.qx-replay svg{width:13px;height:13px}
+.qx-stage.done .qx-replay{opacity:1;pointer-events:auto}
+.qx-replay:hover{border-color:rgba(255,255,255,.4)}
+.qx-body{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);min-height:600px}
+/* specimen */
+.qx-spec-wrap{position:relative;display:grid;place-items:center;padding:56px 70px;border-right:1px solid rgba(255,255,255,.07);overflow:hidden}
+.qx-spot{position:absolute;left:50%;top:44%;width:80%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,236,200,.11),rgba(242,169,0,.04) 40%,transparent 68%);pointer-events:none}
+.qx-floor{position:absolute;left:50%;bottom:58px;width:58%;height:34px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.75),transparent 72%);filter:blur(4px);pointer-events:none}
+.qx-crop{position:absolute;width:22px;height:22px;border-color:rgba(255,255,255,.22);border-style:solid;border-width:0}
+.qx-crop.tl{top:22px;left:22px;border-top-width:1.5px;border-left-width:1.5px}.qx-crop.tr{top:22px;right:22px;border-top-width:1.5px;border-right-width:1.5px}
+.qx-crop.bl{bottom:22px;left:22px;border-bottom-width:1.5px;border-left-width:1.5px}.qx-crop.br{bottom:22px;right:22px;border-bottom-width:1.5px;border-right-width:1.5px}
+.qx-ruler{position:absolute;opacity:.5;pointer-events:none}
+.qx-ruler.v{left:30px;top:70px;bottom:70px;width:8px;background:repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 1px,transparent 1px 10px),repeating-linear-gradient(180deg,rgba(255,255,255,.35) 0 1px,transparent 1px 50px);background-size:5px 100%,8px 100%;background-repeat:no-repeat}
+.qx-ruler.h{bottom:30px;left:70px;right:70px;height:8px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 1px,transparent 1px 10px),repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 1px,transparent 1px 50px);background-size:100% 5px,100% 8px;background-repeat:no-repeat;background-position:0 100%,0 100%}
+.qx-fig{position:absolute;right:30px;bottom:46px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:#56616E}
+.qx-tag{position:absolute;top:34px;left:60px;z-index:3;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 12px;background:#F2A900;color:#0C0F16;border-radius:6px 14px 14px 6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;transform:rotate(-4deg);box-shadow:0 10px 24px -8px rgba(0,0,0,.7);transition:background .5s,transform .5s}
+.qx-tag b{font-weight:700;letter-spacing:.12em}
+.qx-tag span:not(.qx-tag-hole){opacity:.7}
+.qx-tag-hole{width:8px;height:8px;border-radius:50%;background:#10151C;box-shadow:inset 0 1px 2px rgba(0,0,0,.6)}
+.qx-stage.done .qx-tag{background:#5FD08A;transform:rotate(3deg)}
+.qx-spec{position:relative;margin:0;z-index:2}
+.qx-spec-in{position:relative;display:inline-block;animation:qxIn .6s cubic-bezier(.2,.7,.2,1)}
+@keyframes qxIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.qx-spec-in>img{display:block;max-height:380px;max-width:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6)) drop-shadow(0 0 1px rgba(0,0,0,.6))}
+.qx-scan{position:absolute;left:-6%;right:-6%;top:0;height:2px;background:linear-gradient(90deg,transparent,#F7B324 20%,#FFE3A0 50%,#F7B324 80%,transparent);box-shadow:0 0 18px 4px rgba(247,179,36,.45);opacity:0;pointer-events:none}
+.qx-scan::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:60px;background:linear-gradient(0deg,rgba(247,179,36,.14),transparent)}
+.qx-stage.scan .qx-scan{animation:qxScan 2.4s cubic-bezier(.45,0,.55,1) both}
+@keyframes qxScan{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+.qx-hs{position:absolute;width:0;height:0;z-index:3}
+.qx-hs i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:rgba(247,179,36,.18);border:1.5px solid rgba(247,179,36,.5);transition:all .35s}
+.qx-hs i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#F7B324;opacity:.5;transition:opacity .3s}
+.qx-hs.seen i{border-color:rgba(95,208,138,.7);background:rgba(95,208,138,.15)}.qx-hs.seen i::after{background:#5FD08A;opacity:.9}
+.qx-hs.on i{border-color:#F7B324;background:rgba(247,179,36,.25);animation:qxPing 1.6s ease-out infinite}.qx-hs.on i::after{opacity:1}
+@keyframes qxPing{0%{box-shadow:0 0 0 0 rgba(247,179,36,.55)}100%{box-shadow:0 0 0 16px rgba(247,179,36,0)}}
+.qx-hs em{position:absolute;top:-14px;display:flex;align-items:center;gap:8px;white-space:nowrap;font-style:normal;font-size:12px;font-weight:600;color:#0C0F16;background:#FFFFFF;border-radius:8px;padding:6px 10px 6px 7px;box-shadow:0 12px 26px -10px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.qx-hs em b{font-family:var(--f-mono);font-size:10px;color:#0C0F16;background:#F7B324;border-radius:4px;padding:2px 5px}
+.qx-hs.r em{left:58px;transform:translateX(-8px)}.qx-hs.l em{right:58px;transform:translateX(8px)}
+.qx-hs em{--sx:0px}.qx-hs.on em{transform:translateX(var(--sx))!important}
+.qx-hs em::before{content:"";position:absolute;top:50%;width:44px;height:1.5px;background:linear-gradient(90deg,#F7B324,rgba(247,179,36,.3))}
+.qx-hs.r em::before{right:100%}.qx-hs.l em::before{left:100%;transform:scaleX(-1)}
+.qx-hs.on em{opacity:1;transform:none}
+.qx-seal{position:absolute;z-index:4;transform:translate(-50%,-50%) rotate(-8deg) scale(1.8);opacity:0;width:74px;height:74px;border-radius:50%;display:grid;place-content:center;text-align:center;
+  background:conic-gradient(from 210deg,#FFE7A8,#F2A900,#FFF4D6,#D99400,#FFE7A8);color:#3A2A00;box-shadow:0 0 0 3px rgba(255,255,255,.5),0 10px 22px -6px rgba(0,0,0,.7);transition:opacity .45s,transform .55s cubic-bezier(.2,.8,.3,1.35)}
+.qx-seal b{font-family:var(--f-display);font-weight:900;font-size:12px;letter-spacing:.04em;line-height:1}
+.qx-seal span{font-family:var(--f-mono);font-size:7.5px;letter-spacing:.18em;font-weight:700;margin-top:2px}
+.qx-seal i{font-style:normal;font-family:var(--f-mono);font-size:7px;opacity:.7;margin-top:2px}
+.qx-stage.done .qx-seal{opacity:1;transform:translate(-50%,-50%) rotate(-8deg) scale(1)}
+/* report */
+.qx-rep-wrap{position:relative;padding:58px 48px 64px;display:flex;align-items:center}
+.qx-sheet{position:absolute;inset:58px 48px 64px;border-radius:16px;background:#C9CFD6;box-shadow:0 20px 40px -24px rgba(0,0,0,.9)}
+.qx-sheet.s2{transform:translateY(12px) scaleX(.955);opacity:.55}
+.qx-sheet.s3{transform:translateY(24px) scaleX(.91);opacity:.28}
+.qx-rep{position:relative;width:100%;background:#FCFCFD;color:#0C0F16;border-radius:16px;padding:30px 28px 22px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;
+  box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px -28px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.35);background-image:linear-gradient(115deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.7) 50%,rgba(255,255,255,0) 60%),radial-gradient(circle at 100% 0,rgba(242,169,0,.08),transparent 40%);background-size:250% 100%,100% 100%;background-position:100% 0,0 0}
+.qx-stage.done .qx-rep{animation:qxSheen 1.4s ease .3s both}
+.qx-rep::before{content:"";position:absolute;left:50%;top:-14px;width:118px;height:28px;transform:translateX(-50%);border-radius:7px;background:linear-gradient(180deg,#3A4350,#1E242D 60%,#151A21);box-shadow:0 6px 14px -4px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.18);z-index:2}
+.qx-rep::after{content:"";position:absolute;left:50%;top:-6px;width:46px;height:8px;transform:translateX(-50%);border-radius:4px;background:#0B0F14;box-shadow:inset 0 1px 2px rgba(0,0,0,.8);z-index:3}
+@media (hover:hover){.qx-rep-wrap:hover .qx-rep{transform:translateY(-4px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 40px 70px -28px rgba(0,0,0,1),0 0 0 1px rgba(0,0,0,.35)}}
+@keyframes qxSheen{from{background-position:100% 0,0 0}to{background-position:-60% 0,0 0}}
+.qx-rh{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1.5px solid #0C0F16}
+.qx-logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:900;font-size:15px;letter-spacing:-.02em}
+.qx-logo svg{width:22px;height:22px}
+.qx-rt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;color:#5C6773}
+.qx-rid{padding:14px 0 10px}
+.qx-rid span{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#8A95A1}
+.qx-rid b{display:block;font-family:var(--f-display);font-size:20px;font-weight:800;letter-spacing:-.025em;margin-top:3px}
+.qx-rid i{display:block;font-style:normal;font-family:var(--f-mono);font-size:11.5px;color:#2C68C4;margin-top:2px;word-break:break-all}
+.qx-meta{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:10px;margin:0;padding:10px 0 12px;border-bottom:1px solid #E4E8EC}
+.qx-meta dt{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#8A95A1}
+.qx-meta dd{margin:2px 0 0;font-family:var(--f-mono);font-size:11.5px;font-weight:600;white-space:nowrap}
+#qxGrade{color:#7A5400}
+.qx-stage.done #qxGrade{color:#1F9D55}
+.qx-rows{list-style:none;margin:0;padding:6px 0 0;counter-reset:r}
+.qx-rows li{display:grid;grid-template-columns:20px 1fr auto;align-items:center;gap:11px;padding:8px 8px;border-radius:8px;transition:background .35s,opacity .35s}
+.qx-rows li+li{border-top:1px dashed #E4E8EC}
+.qx-ck{position:relative;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;color:#fff;background:#1F9D55;transition:background .3s,transform .4s cubic-bezier(.2,.8,.3,1.5)}
+.qx-ck svg{width:11px;height:11px}
+.qx-rl{font-size:13px;color:#26303B}
+.qx-rv{font-family:var(--f-mono);font-size:11px;color:#5C6773;text-align:right;transition:opacity .3s}
+.qx-rows li.pend{opacity:.42}
+.qx-rows li.pend .qx-ck{background:transparent;border:1.5px dashed #9AA6B2;transform:scale(.85)}
+.qx-rows li.pend .qx-ck svg{opacity:0}
+.qx-rows li.pend .qx-rv{opacity:0}
+.qx-rows li.now{background:#FFF4D6}
+.qx-rows li.now:not(.ok) .qx-ck{background:#F2A900;animation:qxPop .45s cubic-bezier(.2,.8,.3,1.5) both}
+.qx-rows li.ok.now{background:transparent}
+@keyframes qxPop{from{transform:scale(0)}to{transform:scale(1)}}
+.qx-rf{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;margin-top:8px;border-top:1px solid #E4E8EC}
+.qx-sig{display:flex;flex-direction:column;color:#26303B}
+.qx-sig svg{width:96px;height:24px;stroke-dasharray:240;stroke-dashoffset:240}
+.qx-stage.done .qx-sig svg{animation:qxDraw 1.1s ease .2s forwards}
+@keyframes qxDraw{to{stroke-dashoffset:0}}
+.qx-sig em{font-style:normal;font-family:var(--f-mono);font-size:10px;color:#5C6773;margin-top:2px}
+.qx-stamp{font-family:var(--f-display);font-weight:900;font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#1F9D55;border:2.5px solid #1F9D55;border-radius:8px;padding:5px 13px;transform:rotate(-7deg) scale(1.7);opacity:0;box-shadow:inset 0 0 0 2px rgba(31,157,85,.15);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.3,1.4)}
+.qx-stage.done .qx-stamp{opacity:.92;transform:rotate(-7deg) scale(1)}
+/* rail */
+.qx-rail{position:relative;padding:26px 28px 26px;border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:1fr;gap:0}
+.qx-cp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative;z-index:2}
+.qx-cp button{display:flex;flex-direction:column;align-items:flex-start;gap:12px;width:100%;font:inherit;text-align:left;color:#6E7A88;background:none;border:0;padding:0;cursor:pointer}
+.qx-cp-n{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;font-weight:700;background:#10151C;border:1.5px solid rgba(255,255,255,.14);transition:all .35s}
+.qx-cp b{font-size:14px;font-weight:600;transition:color .3s}
+.qx-cp button:hover{color:#DDE3EA}
+.qx-cp button.done .qx-cp-n{border-color:#5FD08A;color:#5FD08A;background:#0F1A14}
+.qx-cp button.on .qx-cp-n{border-color:#F7B324;color:#0C0F16;background:#F7B324;box-shadow:0 0 0 6px rgba(247,179,36,.14),0 0 22px rgba(247,179,36,.35)}
+.qx-cp button.on b,.qx-cp button.done b{color:#fff}
+.qx-track{position:absolute;left:47px;right:calc(20% - 2px);top:45px;height:2px;background:rgba(255,255,255,.1);z-index:1}
+.qx-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#5FD08A,#F7B324);transition:width .9s cubic-bezier(.4,0,.2,1)}
+.qx-cap{margin:22px 0 0;min-height:44px;font-size:14.5px;line-height:1.55;color:#AEB8C4;max-width:760px;animation:qxCap .4s ease}
+.qx-cap b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#F7B324;font-weight:600;margin-bottom:4px}
+/* grade matrix */
+.qx-grade{display:grid;grid-template-columns:.8fr 1.6fr;gap:56px;margin-top:96px;align-items:stretch}
+.qx-grade-h{display:flex;flex-direction:column}
+.qx-pick{margin-top:auto;padding-top:28px}
+.qx-pick-k{display:block;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:#6E7A88;margin-bottom:10px}
+.qx-pick ul{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.08)}
+.qx-pick li{display:flex;gap:14px;align-items:flex-start;padding:14px 10px 14px 0;border-bottom:1px solid rgba(255,255,255,.08);cursor:default;transition:background .25s,padding .25s}
+.qx-pc{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:13px;letter-spacing:-.01em;color:#F7B324;background:rgba(247,179,36,.08);border:1px solid rgba(247,179,36,.22);transition:all .25s}
+.qx-pick b{display:block;font-size:14px;font-weight:600;color:#fff}
+.qx-pick em{display:block;font-style:normal;font-size:13px;color:#8C97A4;line-height:1.5;margin-top:2px}
+.qx-pick li.on{background:linear-gradient(90deg,rgba(247,179,36,.06),transparent);padding-left:10px}
+.qx-pick li.on .qx-pc{background:#F7B324;color:#0C0F16;border-color:#F7B324}
+.qx-pick-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:inherit;font-size:14px;font-weight:600;color:#F7B324;background:none;border:0;padding:0;cursor:pointer;transition:gap .2s}
+.qx-pick-cta:hover{gap:12px}
+.qx-pick-cta:focus-visible{outline:2px solid #F7B324;outline-offset:4px;border-radius:4px}
+.qx-grade-h h3{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,3vw,40px);letter-spacing:-.035em;line-height:1.05;margin-top:18px;color:#fff}
+.qx-grade-h p{font-size:15px;line-height:1.6;color:#AEB8C4;margin-top:12px;max-width:340px}
+.qx-mx{border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;background:#0D1117}
+.qx-mr{display:grid;grid-template-columns:1.25fr repeat(3,1fr)}
+.qx-mr>div{padding:13px 18px;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;transition:background .25s}
+.qx-mr>div+div{border-left:1px solid rgba(255,255,255,.06);justify-content:center}
+.qx-mh>div{border-top:0;padding:22px 18px 20px}
+.qx-mk{font-size:13.5px;color:#C9D2DC}
+.qx-mh .qx-mk{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6E7A88;align-items:flex-end!important}
+.qx-col{flex-direction:column;align-items:flex-start!important;justify-content:flex-start!important;gap:3px}
+.qx-code{font-family:var(--f-display);font-weight:800;font-size:44px;line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.4px rgba(255,255,255,.35);margin-bottom:10px;transition:-webkit-text-stroke-color .3s,color .3s}
+.qx-col b{font-size:14.5px;color:#fff}
+.qx-col em{font-style:normal;font-size:12px;color:#6E7A88}
+.qx-meter{display:flex;gap:3px;margin-top:10px}
+.qx-meter i{width:18px;height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
+.qx-meter i.on{background:#F7B324}
+.qx-y{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(95,208,138,.14);color:#5FD08A}
+.qx-y svg{width:12px;height:12px}
+.qx-r{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:#F7B324;background:rgba(247,179,36,.1);border:1px solid rgba(247,179,36,.25);padding:3px 8px;border-radius:100px;white-space:nowrap}
+.qx-n{color:#3E4854;font-weight:600}
+.qx-mx[data-hc="0"] [data-c="0"],.qx-mx[data-hc="1"] [data-c="1"],.qx-mx[data-hc="2"] [data-c="2"]{background:rgba(247,179,36,.05)}
+.qx-mx[data-hc="0"] .qx-col[data-c="0"] .qx-code,.qx-mx[data-hc="1"] .qx-col[data-c="1"] .qx-code,.qx-mx[data-hc="2"] .qx-col[data-c="2"] .qx-code{-webkit-text-stroke-color:#F7B324}
+.qx-mr.last .qx-mk{font-weight:600;color:#fff}
+@media (max-width:1180px){.qx-body{grid-template-columns:1fr 1fr}.qx-spec-wrap{padding:56px 50px}.qx-rep-wrap{padding:50px 32px 56px}.qx-sheet{inset:50px 32px 56px}.qx-cp b{font-size:13px}}
+@media (max-width:980px){
+  .qx{padding:84px 0 92px}.qx-head{grid-template-columns:1fr;gap:26px;margin-bottom:40px}
+  .qx-body{grid-template-columns:1fr;min-height:0}.qx-spec-wrap{border-right:0;border-bottom:1px solid rgba(255,255,255,.07);min-height:460px}
+  .qx-rep-wrap{padding:44px 30px 52px}.qx-sheet{inset:44px 30px 52px}
+  .qx-bar{flex-wrap:wrap}.qx-grade{grid-template-columns:1fr;gap:28px;margin-top:72px}.qx-pick{margin-top:0}}
+@media (max-width:640px){
+  .qx{padding:64px 0 72px;margin-top:24px}.qx h2{font-size:clamp(36px,10.5vw,46px)}.qx-head-r p{font-size:15.5px}.qx-cta .btn{flex:1 1 auto}
+  .qx-specs dt{font-size:20px}.qx-specs div+div{padding-left:12px}.qx-specs dd{font-size:9.5px}
+  .qx-stage{border-radius:22px;margin:0 -6px}.qx-bar{padding:12px}.qx-sel{width:100%;justify-content:space-between}.qx-sel button{flex:1;padding:6px;gap:8px}.qx-sel em{display:none}.qx-sel b{font-size:12.5px}.qx-sel-t{width:28px;height:28px}.qx-live{width:100%;font-size:10px;padding:2px 4px 0}.qx-replay{margin-left:auto}
+  .qx-spec-wrap{padding:64px 22px 54px;min-height:400px}.qx-spec-in>img{max-height:260px}.qx-tag{left:18px;top:18px;font-size:10px}.qx-ruler,.qx-fig{display:none}.qx-crop.tl,.qx-crop.tr{top:12px}.qx-crop.bl,.qx-crop.br{bottom:12px}.qx-crop.tl,.qx-crop.bl{left:12px}.qx-crop.tr,.qx-crop.br{right:12px}
+  .qx-hs em{font-size:11px;padding:5px 8px 5px 6px}.qx-hs em::before{width:22px}.qx-hs.r em{left:30px}.qx-hs.l em{right:30px}
+  .qx-rep-wrap{padding:34px 14px 40px}.qx-sheet{inset:34px 14px 40px}.qx-rep{padding:18px 16px 16px}.qx-meta{grid-template-columns:repeat(2,1fr);row-gap:10px}.qx-rows li{grid-template-columns:18px 1fr;row-gap:1px}.qx-rv{grid-column:2;text-align:left}
+  .qx-rail{padding:20px 14px}.qx-cp b{display:none}.qx-cp button{justify-content:center}.qx-cp-n{width:34px;height:34px}.qx-track{left:calc(10% + 11px);right:calc(10% + 11px);top:37px}.qx-cp button{align-items:center}
+  .qx-mr{grid-template-columns:1.3fr repeat(3,.8fr)}.qx-mr>div{padding:11px 8px}.qx-mh>div{padding:16px 8px}.qx-mk{font-size:12px}.qx-code{font-size:28px;margin-bottom:6px}.qx-col b{font-size:11.5px;line-height:1.25}.qx-col em,.qx-meter{display:none}.qx-r{font-size:0;padding:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center}.qx-r::before{content:"Req";font-size:8.5px}}
+@media (prefers-reduced-motion:reduce){.qx *{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -1492,7 +1708,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
 <div class="util">
   <div class="wrap">
     <div class="util-list">
-      <span><i class="dot"></i>Free 2-day shipping on stocked items</span>
+      <span><i class="dot"></i>Free 4-day shipping on stocked items</span>
       <span><i class="dot"></i>Free lifetime engineering support</span>
       <span><i class="dot"></i>30-day returns · 2-year warranty</span>
     </div>
@@ -1722,11 +1938,96 @@ html.call-lock,html.call-lock body{overflow:hidden}
         <p>Pre-engineered bills of material, wiring templates and application notes for the systems our customers build every day.</p>
       </div>
       <div class="app-grid" id="appGrid"></div>
+      <div class="app-eng">
+        <span class="app-eng-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
+        <div class="app-eng-t"><span class="app-eng-k">ENGINEERING SERVICES</span><b>Need it designed, built and commissioned too?</b><span>Controls design, UL 508A panels, PLC &amp; HMI programming and startup from our engineering partner, quoted with your parts.</span></div>
+        <a class="btn btn-signal app-eng-btn" href="#/engineering" data-route="engineering">Explore engineering <svg viewBox="0 0 24 24" fill="none" width="16"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============= RESOURCES ============= -->
+<!-- ============= QUALITY & AUTHENTICITY ============= -->
+<section id="quality" class="qx" aria-labelledby="qxTitle">
+  <div class="qx-bg" aria-hidden="true"></div>
+  <div class="wrap qx-in">
+    <header class="qx-head">
+      <div class="qx-head-l">
+        <span class="qx-eb"><i></i>QUALITY &amp; AUTHENTICITY</span>
+        <h2 id="qxTitle"><span>Surplus,</span> <span class="qx-amber">without the guesswork.</span></h2>
+      </div>
+      <div class="qx-head-r">
+        <p>Every part is authenticated and inspected before it ships. Add a bench test and the report ships with the part, all backed by a 2-year DATUM warranty.</p>
+        <div class="qx-cta">
+          <button type="button" class="btn btn-signal" data-chat="Please send a sample inspection report for: ">Request a test report</button>
+          <button type="button" class="btn qx-ghost" data-route="warranty">Warranty terms</button>
+        </div>
+        <dl class="qx-specs"><div><dt>05</dt><dd>Checkpoints</dd></div><div><dt>01</dt><dd>Traceable report</dd></div><div><dt>2 YR</dt><dd>DATUM warranty</dd></div></dl>
+      </div>
+    </header>
+
+    <div class="qx-stage" id="qxStage">
+      <div class="qx-bar">
+        <div class="qx-sel" role="tablist" aria-label="Example specimen">
+          <button type="button" role="tab" class="on" aria-selected="true" data-qx="0"><span class="qx-sel-t"></span><span><b>Controller</b><em>5069-L320ER/A</em></span></button>
+          <button type="button" role="tab" aria-selected="false" data-qx="1"><span class="qx-sel-t"></span><span><b>Drive</b><em>PowerFlex 755</em></span></button>
+          <button type="button" role="tab" aria-selected="false" data-qx="2"><span class="qx-sel-t"></span><span><b>HMI</b><em>2711P-T7C4D8/A</em></span></button>
+        </div>
+        <div class="qx-live"><span class="qx-dot"></span><span id="qxLive">Inspection in progress</span><button type="button" class="qx-replay" id="qxReplay" aria-label="Replay inspection"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4.5h4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Replay</button></div>
+      </div>
+
+      <div class="qx-body">
+        <div class="qx-spec-wrap">
+          <div class="qx-crop tl"></div><div class="qx-crop tr"></div><div class="qx-crop bl"></div><div class="qx-crop br"></div>
+          <div class="qx-ruler v" aria-hidden="true"></div><div class="qx-ruler h" aria-hidden="true"></div>
+          <div class="qx-tag" id="qxTag"><span class="qx-tag-hole"></span><b id="qxTagS">HOLD</b><span id="qxTagN">QA-24117</span></div>
+          <div class="qx-spot" aria-hidden="true"></div>
+          <figure class="qx-spec" id="qxSpec"></figure>
+          <div class="qx-floor" aria-hidden="true"></div>
+          <span class="qx-fig" id="qxFig">FIG. 01 — SPECIMEN</span>
+        </div>
+        <div class="qx-rep-wrap" id="qxRepWrap">
+          <div class="qx-sheet s3"></div><div class="qx-sheet s2"></div>
+          <article class="qx-rep" id="qxRep" aria-live="polite"></article>
+        </div>
+      </div>
+
+      <div class="qx-rail">
+        <ol class="qx-cp" id="qxCp" role="tablist" aria-label="Inspection checkpoints">
+          <li><button type="button" data-cp="1"><span class="qx-cp-n">01</span><b>Receive</b></button></li>
+          <li><button type="button" data-cp="2"><span class="qx-cp-n">02</span><b>Authenticate</b></button></li>
+          <li><button type="button" data-cp="3"><span class="qx-cp-n">03</span><b>Inspect</b></button></li>
+          <li><button type="button" data-cp="4"><span class="qx-cp-n">04</span><b>Bench test</b></button></li>
+          <li><button type="button" data-cp="5"><span class="qx-cp-n">05</span><b>Grade &amp; seal</b></button></li>
+        </ol>
+        <div class="qx-track" aria-hidden="true"><span id="qxFill"></span></div>
+        <p class="qx-cap" id="qxCap"></p>
+      </div>
+    </div>
+
+    <div class="qx-grade">
+      <div class="qx-grade-h"><span class="qx-eb"><i></i>CONDITION GRADES</span><h3>Know exactly what arrives.</h3><p>Every part is graded on one of three conditions. All three carry the same 2-year DATUM warranty.</p>
+        <div class="qx-pick"><span class="qx-pick-k">WHICH GRADE FITS</span>
+          <ul>
+            <li data-c="0"><span class="qx-pc">NS</span><div><b>New builds &amp; critical spares</b><em>Factory sealed, ready for commissioning and shelf stock.</em></div></li>
+            <li data-c="1"><span class="qx-pc">OB</span><div><b>Budget-conscious builds</b><em>Unused hardware at a lower price than sealed stock.</em></div></li>
+            <li data-c="2"><span class="qx-pc">UT</span><div><b>Legacy &amp; line-down repairs</b><em>Discontinued parts, powered up and tested before they ship.</em></div></li>
+          </ul>
+          <button type="button" class="qx-pick-cta" data-chat="Which condition grade should I choose for these parts: ">Not sure? Ask an engineer <svg viewBox="0 0 24 24" fill="none" width="15"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div></div>
+      <div class="qx-mx" role="table" aria-label="Condition grade comparison">
+        <div class="qx-mr qx-mh" role="row">
+          <div role="columnheader" class="qx-mk">Included</div>
+          <div role="columnheader" class="qx-col" data-c="0"><span class="qx-code">NS</span><b>New surplus</b><em>Unused · factory sealed</em><span class="qx-meter"><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <div role="columnheader" class="qx-col" data-c="1"><span class="qx-code">OB</span><b>Surplus, open box</b><em>Unused · opened or resealed</em><span class="qx-meter"><i class="on"></i><i class="on"></i><i></i></span></div>
+          <div role="columnheader" class="qx-col" data-c="2"><span class="qx-code">UT</span><b>Used, tested</b><em>Pulled from service · cleaned</em><span class="qx-meter"><i class="on"></i><i></i><i></i></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="resources">
   <div class="wrap">
     <div class="sec-head">
@@ -1875,6 +2176,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
         <a href="#/about" data-route="about">About DATUM</a>
         <a href="#support">Support</a>
         <a href="#/shipping" data-route="shipping">Shipping &amp; returns</a>
+        <a href="#quality">Quality &amp; testing</a>
         <a href="#/warranty" data-route="warranty">Warranty</a>
         <a href="#/careers" data-route="careers">Careers</a>
       </div>
@@ -2480,10 +2782,10 @@ APPS.forEach(a=>{
 const WHY=[
   {t:'One price, published',d:'Every part shows its price up front. No quotes, no tiers, no minimums — the same number whether you order one or a thousand.',ic:'<path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'},
   {t:'Free lifetime support',d:'Control engineers on the phone in under a minute — before you buy and long after. No ticket, no upsell, no bot.',ic:'<path d="M4 5h16v11H8l-4 4V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'},
-  {t:'Ships when you order',d:'14,000+ SKUs in the warehouse, free 2-day shipping, 6 PM ET cutoff. 98% of orders leave the same day.',ic:'<path d="M3 7h11v8H3V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M14 10h4l3 3v2h-7v-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="17" r="1.6" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17" r="1.6" stroke="currentColor" stroke-width="1.8"/>'},
+  {t:'Ships when you order',d:'14,000+ SKUs in the warehouse, free 4-day shipping and a 6 PM ET cutoff. 98% of orders leave the same day.',ic:'<path d="M3 7h11v8H3V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M14 10h4l3 3v2h-7v-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7" cy="17" r="1.6" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17" r="1.6" stroke="currentColor" stroke-width="1.8"/>'},
   {t:'Real documentation',d:'Dimensioned drawings, CAD, wiring maps and derating curves on every part — the current revision, free to download.',ic:'<path d="M6 3h9l4 4v14H6V3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'},
   {t:'2-year warranty',d:'Every component carries a full two-year warranty, with cross-ship replacement so your line never waits on us.',ic:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'},
-  {t:'30-day returns',d:'Ordered the wrong module? Send it back within 30 days for a full refund — no restocking fee, no argument.',ic:'<path d="M4 10a8 8 0 1 1 2 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 5v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'},
+  {t:'30-day returns',d:'Ordered the wrong module? Send it back unopened within 30 days for a full refund, with no restocking fee.',ic:'<path d="M4 10a8 8 0 1 1 2 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 5v5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'},
 ];
 const whyGrid=document.getElementById('whyGrid');
 WHY.forEach(w=>{
@@ -2557,6 +2859,110 @@ WHY.forEach(w=>{
   });
   tabs.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); stop(); show(cur+(e.key==='ArrowRight'?1:-1),true); } });
   show(0);
+})();
+
+
+
+/* ---------- quality & authenticity: inspection bench ---------- */
+(function(){
+  const stage=document.getElementById('qxStage'); if(!stage) return;
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const STEPS=[
+    ['Receive & quarantine','Logged on arrival and held apart from sellable stock until it clears every checkpoint.'],
+    ['Authenticate','Catalog number, series and serial label verified against the manufacturer format and traced to the source lot.'],
+    ['Inspect','Housing, pins, connectors and terminals checked under magnification for damage, corrosion and wear.'],
+    ['Bench test','Powered up on a test bench with readings recorded. Standard on used parts, available on request for the rest.'],
+    ['Grade, seal & ship','Condition graded, tamper-evident seal applied and photos kept on file with the report.']];
+  const S=[
+    {pn:'5069-L320ER/A',no:'QA-24117',sn:'7A2',sw:'v33.011',grade:'New surplus',
+     hs:[[62,6,2,'Catalog & series label','r'],[61,40,3,'Power terminals','r'],[12,24,4,'Status LEDs · RUN / OK','l'],[13,76,4,'USB & EtherNet/IP ports','l']],seal:[38,57],
+     rows:[[1,'Received & logged','Bay 3 · quarantine'],[2,'Catalog & series verified','5069-L320ER · Ser. A'],[2,'Serial label traced','Source lot on file'],[3,'Housing, pins & terminals','No damage'],[4,'Power-up & diagnostics','OK LED solid'],[4,'EtherNet/IP ports 1–2','Link 1 Gb'],[4,'Firmware read','v33.011'],[5,'Graded & sealed','New surplus']]},
+    {pn:'20G1ANC022JA0NNNNN',no:'QA-24131',sn:'K19',sw:'v14.002',grade:'Surplus, open box',
+     hs:[[58,47,2,'Catalog & nameplate','r'],[30,3,3,'Heatsink & vents','l'],[60,22,4,'HIM & fault log','r'],[40,62,3,'Cover & terminals','l']],seal:[52,78],
+     rows:[[1,'Received & logged','Bay 5 · quarantine'],[2,'Catalog & nameplate verified','20G1ANC022 · 15 HP'],[2,'Serial label traced','Source lot on file'],[3,'Heatsink, fans & terminals','Clean · no burn'],[4,'DC bus pre-charge','Within spec'],[4,'HIM comms & fault log','Cleared'],[4,'Cooling fan run','Normal'],[5,'Graded & sealed','Surplus, open box']]},
+    {pn:'2711P-T7C4D8/A',no:'QA-24152',sn:'3QD',sw:'FTV ME v12',grade:'Used, tested',
+     hs:[[85,8,2,'Catalog & series label','r'],[19,50,3,'Bezel & gasket','l'],[52,48,4,'Display & touch','r']],seal:[80,86],
+     rows:[[1,'Received & logged','Bay 2 · quarantine'],[2,'Catalog & series verified','2711P-T7C4D8 · Ser. A'],[2,'Serial label traced','Source lot on file'],[3,'Bezel, gasket & glass','No cracks'],[4,'Display & backlight','No dead pixels'],[4,'Touch calibration','Pass'],[4,'Ethernet link','Link 100 Mb'],[5,'Graded & sealed','Used, tested']]}];
+  const ck='<svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4.5 4.5L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let sp=0, step=reduce?5:0, timer=null, started=false, manual=false;
+  const part=i=>P.find(x=>x.part===S[i].pn)||{};
+  document.querySelectorAll('.qx-sel [data-qx]').forEach(b=>{ const p=part(+b.dataset.qx); const t=b.querySelector('.qx-sel-t'); const src=p.img||(IMG&&IMG[p.cat]); if(src&&t) t.innerHTML=`<img src="${src}" alt="">`; });
+
+  function build(){
+    const s=S[sp], p=part(sp), src=p.img||(IMG&&IMG[p.cat])||'';
+    $('qxSpec').innerHTML=`<div class="qx-spec-in"><img src="${src}" alt="${esc(p.name||s.pn)}"><span class="qx-scan"></span>
+      ${s.hs.map(([x,y,st,l,side])=>`<span class="qx-hs ${side}" data-st="${st}" style="left:${x}%;top:${y}%"><i></i><em><b>0${st}</b>${esc(l)}</em></span>`).join('')}
+      <span class="qx-seal" style="left:${s.seal[0]}%;top:${s.seal[1]}%"><b>DATUM</b><span>SEALED</span><i>${s.no}</i></span></div>`;
+    $('qxTagN').textContent=s.no;
+    $('qxRep').innerHTML=`
+      <div class="qx-rh"><span class="qx-logo"><svg viewBox="0 0 30 30" fill="none"><rect x="1" y="1" width="28" height="28" rx="6" fill="#0C0F16"/><path d="M8 9h6.2c4 0 6.8 2.4 6.8 6s-2.8 6-6.8 6H8V9Z" stroke="#fff" stroke-width="2.4"/><circle cx="21.5" cy="15" r="2.4" fill="#F2A900"/></svg>DATUM</span><span class="qx-rt">INSPECTION REPORT · EXAMPLE</span></div>
+      <div class="qx-rid"><div><span>Part</span><b>${esc(p.name||'')}</b><i>${esc(s.pn)}</i></div></div>
+      <dl class="qx-meta"><div><dt>Report</dt><dd>${s.no}</dd></div><div><dt>Serial</dt><dd>••••${s.sn}</dd></div><div><dt>Software</dt><dd>${esc(s.sw)}</dd></div><div><dt>Grade</dt><dd id="qxGrade">—</dd></div></dl>
+      <ol class="qx-rows">${s.rows.map(([st,t,v])=>`<li data-st="${st}"><span class="qx-ck">${ck}</span><span class="qx-rl">${esc(t)}</span><span class="qx-rv">${esc(v)}</span></li>`).join('')}</ol>
+      <div class="qx-rf"><span class="qx-sig"><svg viewBox="0 0 120 30" fill="none"><path d="M4 22c8-10 14-14 18-10s-4 12 2 10 10-16 16-12-2 12 4 10 8-10 14-8 2 8 8 6 10-6 16-6 8 4 14 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><em>Inspected by Tech 07</em></span><span class="qx-stamp">Passed</span></div>`;
+    document.querySelectorAll('.qx-sel [data-qx]').forEach(b=>{ const on=+b.dataset.qx===sp; b.classList.toggle('on',on); b.setAttribute('aria-selected',on); });
+    $('qxFig').textContent=`FIG. 0${sp+1} — ${s.pn}`;
+    apply(true);
+  }
+  function apply(instant){
+    const s=S[sp];
+    stage.dataset.step=step; stage.classList.toggle('done',step>=5);
+    $('qxRep').querySelectorAll('.qx-rows li').forEach(li=>{ const st=+li.dataset.st; li.className=st<step?'ok':st===step?(step>=5?'ok now':'now'):'pend'; });
+    $('qxSpec').querySelectorAll('.qx-hs').forEach(h=>{ const st=+h.dataset.st; h.classList.toggle('on',st===step); h.classList.toggle('seen',st<step); });
+    $('qxGrade').textContent=step>=5?s.grade:'Pending';
+    $('qxTagS').textContent=step>=5?'RELEASED':'HOLD';
+    document.querySelectorAll('#qxCp button').forEach(b=>{ const c=+b.dataset.cp; b.classList.toggle('on',c===step); b.classList.toggle('done',c<step||step>=5&&c===5); b.setAttribute('aria-selected',c===step); });
+    $('qxFill').style.width=step<=1?'0%':((step-1)/4*100)+'%';
+    $('qxCap').innerHTML=step?`<b>Checkpoint 0${step} · ${esc(STEPS[step-1][0])}</b>${esc(STEPS[step-1][1])}`:'<b>Ready</b>Specimen on the bench.';
+    $('qxLive').textContent=step>=5?'Inspection complete':step?`Checkpoint ${step} of 5`:'Ready';
+    stage.classList.toggle('scan',step===4&&!reduce);
+    requestAnimationFrame(fit);
+  }
+  /* keep hotspot labels inside the specimen frame: flip side, then nudge */
+  function fit(){
+    const box=document.querySelector('.qx-spec-wrap')?.getBoundingClientRect(); if(!box) return;
+    $('qxSpec').querySelectorAll('.qx-hs').forEach(h=>{
+      const em=h.querySelector('em'); em.style.setProperty('--sx','0px');
+      const pr=h.dataset.side||(h.classList.contains('r')?'r':'l'); h.dataset.side=pr;
+      h.classList.remove('l','r'); h.classList.add(pr);
+      let r=em.getBoundingClientRect();
+      const out=x=>x.left<box.left+10||x.right>box.right-10;
+      if(out(r)){ h.classList.remove(pr); h.classList.add(pr==='r'?'l':'r'); r=em.getBoundingClientRect();
+        if(out(r)){ h.classList.remove('l','r'); h.classList.add(pr); r=em.getBoundingClientRect(); } }
+      let dx=0; if(r.left<box.left+10) dx=box.left+10-r.left; else if(r.right>box.right-10) dx=box.right-10-r.right;
+      if(dx) em.style.setProperty('--sx',dx+'px');
+    });
+  }
+  addEventListener('resize',()=>requestAnimationFrame(fit),{passive:true});
+  function stop(){ clearInterval(timer); timer=null; stage.classList.remove('playing'); }
+  function play(from){
+    stop(); if(reduce){ step=5; apply(); return; }
+    step=from||1; apply(); stage.classList.add('playing');
+    timer=setInterval(()=>{ if(stage.matches(':hover')&&manual) return; if(step>=5){ stop(); return; } step++; apply(); if(step>=5) stop(); },2600);
+  }
+  build();
+  if(!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(es=>{ if(es[0].isIntersecting&&!started){ started=true; setTimeout(()=>{ if(!manual&&!timer&&step===0) play(1); },350); } },{threshold:.35}).observe(stage);
+  } else { step=5; apply(); }
+  document.querySelector('.qx-sel').addEventListener('click',e=>{ const b=e.target.closest('[data-qx]'); if(!b) return; sp=+b.dataset.qx; started=true; build(); if(!manual&&!reduce) play(1); });
+  document.querySelector('.qx-sel').addEventListener('keydown',e=>{ if(!/Arrow(Left|Right)/.test(e.key)) return; e.preventDefault(); sp=(sp+(e.key==='ArrowRight'?1:2))%3; build(); document.querySelector(`.qx-sel [data-qx="${sp}"]`).focus(); });
+  $('qxCp').addEventListener('click',e=>{ const b=e.target.closest('[data-cp]'); if(!b) return; manual=true; stop(); started=true; step=+b.dataset.cp; apply(); });
+  $('qxCp').addEventListener('keydown',e=>{ if(!/Arrow(Left|Right)/.test(e.key)) return; e.preventDefault(); manual=true; stop(); step=Math.min(5,Math.max(1,(step||1)+(e.key==='ArrowRight'?1:-1))); apply(); document.querySelector(`#qxCp [data-cp="${step}"]`).focus(); });
+  $('qxReplay').addEventListener('click',()=>{ manual=false; started=true; play(1); });
+  /* grade matrix */
+  const MX=[['Factory seals intact',['y','n','n']],['Never installed',['y','y','n']],['Authenticated & traced',['y','y','y']],['Inspected under magnification',['y','y','y']],['Power-up bench test',['r','r','y']],['Tamper-evident seal',['y','y','y']],['2-year DATUM warranty',['y','y','y']]];
+  const cell=v=>v==='y'?`<span class="qx-y" aria-label="Included">${ck}</span>`:v==='r'?'<span class="qx-r">On request</span>':'<span class="qx-n" aria-label="Not included">—</span>';
+  document.querySelector('.qx-mx').insertAdjacentHTML('beforeend',MX.map(([t,v],i)=>`<div class="qx-mr${i===MX.length-1?' last':''}" role="row"><div role="rowheader" class="qx-mk">${esc(t)}</div>${v.map((x,c)=>`<div role="cell" class="qx-mc" data-c="${c}">${cell(x)}</div>`).join('')}</div>`).join(''));
+  const mx=document.querySelector('.qx-mx');
+  mx.addEventListener('mouseover',e=>{ const c=e.target.closest('[data-c]'); mx.dataset.hc=c?c.dataset.c:''; });
+  mx.addEventListener('mouseleave',()=>{ mx.dataset.hc=''; });
+  const pick=document.querySelectorAll('.qx-pick li');
+  const sync=c=>{ mx.dataset.hc=c; pick.forEach(li=>li.classList.toggle('on',li.dataset.c===c)); };
+  mx.addEventListener('mouseover',e=>{ const c=e.target.closest('[data-c]'); sync(c?c.dataset.c:''); });
+  mx.addEventListener('mouseleave',()=>sync(''));
+  pick.forEach(li=>{ li.addEventListener('mouseenter',()=>sync(li.dataset.c)); li.addEventListener('mouseleave',()=>sync('')); });
 })();
 
 /* ---------- mega menu ---------- */
