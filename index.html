@@ -1741,7 +1741,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
         </button>
         <div class="mega" id="prodMega" role="menu"></div>
       </div>
-      <a class="navlink" href="#applications">Solutions</a>
+      <a class="navlink" href="#/engineering" data-route="engineering">Services</a>
       <a class="navlink" href="#resources">Resources</a>
       <a class="navlink" href="#support">Support</a>
       <a class="navlink" href="#why">Why DATUM</a>
@@ -1941,7 +1941,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
       <div class="app-eng">
         <span class="app-eng-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
         <div class="app-eng-t"><span class="app-eng-k">ENGINEERING SERVICES</span><b>Need it designed, built and commissioned too?</b><span>Controls design, UL 508A panels, PLC &amp; HMI programming and startup from our engineering partner, quoted with your parts.</span></div>
-        <a class="btn btn-signal app-eng-btn" href="#/engineering" data-route="engineering">Explore engineering <svg viewBox="0 0 24 24" fill="none" width="16"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-signal app-eng-btn" href="#/engineering" data-route="engineering">Explore services <svg viewBox="0 0 24 24" fill="none" width="16"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </div>
@@ -2228,7 +2228,7 @@ html.call-lock,html.call-lock body{overflow:hidden}
       </button>
     </div>
     <a href="#products">Products</a>
-    <a href="#applications">Solutions</a>
+    <a href="#/engineering" data-route="engineering">Services</a>
     <a href="#resources">Resources</a>
     <a href="#support">Support</a>
     <a href="#why">Why DATUM</a>
@@ -3896,7 +3896,7 @@ requestAnimationFrame(()=>document.querySelector('.hero-art')?.classList.add('in
   /* ---------- global wiring (capture phase) ---------- */
   document.addEventListener('click',e=>{
     const t=e.target;
-    const r=t.closest('[data-route]'); if(r){ e.preventDefault(); e.stopPropagation(); go(r.dataset.route); return; }
+    const r=t.closest('[data-route]'); if(r){ e.preventDefault(); e.stopPropagation(); document.getElementById('mnav')?.classList.remove('open'); go(r.dataset.route); return; }
     const c=t.closest('[data-chat]'); if(c){ e.preventDefault(); e.stopPropagation(); openChat({msg:c.dataset.chat}); return; }
     const g=t.closest('[data-goto]'); if(g){ e.preventDefault(); e.stopPropagation(); leave(); setTimeout(()=>document.querySelector(g.dataset.goto)?.scrollIntoView({behavior:'smooth'}),60); return; }
     const pr=t.closest('[data-print]'); if(pr){ e.preventDefault(); window.print(); return; }
